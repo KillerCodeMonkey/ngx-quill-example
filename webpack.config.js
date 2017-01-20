@@ -24,7 +24,7 @@ module.exports = {
             loader: 'string-replace-loader',
             query: {
                 search: 'BASE_URL',
-                replace: process.env.NODE_ENV == 'deploy' ? '/ngx-quill/' : '/'
+                replace: process.env.NODE_ENV == 'deploy' ? '/ngx-quill-example/' : '/'
             }
         }, {
             test: /\.ts$/,
