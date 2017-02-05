@@ -1,5 +1,14 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
+// override p with div tag
+import * as Quill from 'quill';
+const Parchment = Quill.import('parchment');
+let Block = Parchment.query('block');
+
+Block.tagName = 'DIV';
+// or class NewBlock extends Block {}; NewBlock.tagName = 'DIV';
+Quill.register(Block /* or NewBlock */, true);
+
 @Component({
   selector: 'app-root',
   template: `
