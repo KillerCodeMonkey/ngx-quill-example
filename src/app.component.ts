@@ -23,6 +23,28 @@ Quill.register(Block /* or NewBlock */, true);
 {{isReadOnly}}
 {{title}}
 <quill-editor [(ngModel)]="title" [maxLength]="5" [minLength]="3" required="true" [readOnly]="isReadOnly" [modules]="{toolbar: false}" (onContentChanged)="logChange($event);"></quill-editor>
+<h3>Custom Toolbar with toolbar title-attributes</h3>
+<quill-editor>
+  <div quill-editor-toolbar>
+    <span class="ql-formats">
+      <button class="ql-bold" [title]="'Bold'"></button>
+    </span>
+    <span class="ql-formats">
+      <select class="ql-align" [title]="'Aligment'">
+        <option selected></option>
+        <option value="center"></option>
+        <option value="right"></option>
+        <option value="justify"></option>
+      </select>
+      <select class="ql-align" [title]="'Aligment2'">
+        <option selected></option>
+        <option value="center"></option>
+        <option value="right"></option>
+        <option value="justify"></option>
+      </select>
+    </span>
+  </div>
+</quill-editor>
   `,
   styles: [`
     quill-editor {
