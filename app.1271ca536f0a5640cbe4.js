@@ -66705,7 +66705,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'app-root',
-            template: "\n<h3>Default editor</h3>\n<quill-editor></quill-editor>\n\n<h3>Bubble editor</h3>\n<quill-editor theme=\"bubble\"></quill-editor>\n\n<h3>Editor without toolbar + required and ngModule</h3>\n<button (click)=\"toggleReadOnly()\">Toggle ReadOnly</button>\n{{isReadOnly}}\n{{title}}\n<quill-editor [(ngModel)]=\"title\" [maxLength]=\"5\" [minLength]=\"3\" required=\"true\" [readOnly]=\"isReadOnly\" [modules]=\"{toolbar: false}\" (onContentChanged)=\"logChange($event);\"></quill-editor>\n  ",
+            template: "\n<h3>Default editor</h3>\n<quill-editor></quill-editor>\n\n<h3>Bubble editor</h3>\n<quill-editor theme=\"bubble\"></quill-editor>\n\n<h3>Editor without toolbar + required and ngModule</h3>\n<button (click)=\"toggleReadOnly()\">Toggle ReadOnly</button>\n{{isReadOnly}}\n{{title}}\n<quill-editor [(ngModel)]=\"title\" [maxLength]=\"5\" [minLength]=\"3\" required=\"true\" [readOnly]=\"isReadOnly\" [modules]=\"{toolbar: false}\" (onContentChanged)=\"logChange($event);\"></quill-editor>\n<h3>Custom Toolbar with toolbar title-attributes</h3>\n<quill-editor>\n  <div quill-editor-toolbar>\n    <span class=\"ql-formats\">\n      <button class=\"ql-bold\" [title]=\"'Bold'\"></button>\n    </span>\n    <span class=\"ql-formats\">\n      <select class=\"ql-align\" [title]=\"'Aligment'\">\n        <option selected></option>\n        <option value=\"center\"></option>\n        <option value=\"right\"></option>\n        <option value=\"justify\"></option>\n      </select>\n      <select class=\"ql-align\" [title]=\"'Aligment2'\">\n        <option selected></option>\n        <option value=\"center\"></option>\n        <option value=\"right\"></option>\n        <option value=\"justify\"></option>\n      </select>\n    </span>\n  </div>\n</quill-editor>\n  ",
             styles: ["\n    quill-editor {\n      display: block;\n    }\n    .ng-invalid {\n      border: 1px dashed red;\n    }\n  "],
             encapsulation: core_1.ViewEncapsulation.None
         }), 
@@ -87602,17 +87602,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	    QuillEditorComponent.prototype.ngAfterViewInit = function () {
 	        var _this = this;
-	        this.editorElem = this.elementRef.nativeElement.children[0];
+	        var toolbarElem = this.elementRef.nativeElement.querySelector('[quill-editor-toolbar]');
+	        var modules = this.modules || this.defaultModules;
+	        if (toolbarElem) {
+	            modules['toolbar'] = toolbarElem;
+	        }
+	        this.elementRef.nativeElement.insertAdjacentHTML('beforeend', '<div quill-editor-element></div>');
+	        this.editorElem = this.elementRef.nativeElement.querySelector('[quill-editor-element]');
 	        this.quillEditor = new Quill(this.editorElem, {
-	            modules: this.modules || this.defaultModules,
+	            modules: modules,
 	            placeholder: this.placeholder || 'Insert text here ...',
 	            readOnly: this.readOnly || false,
 	            theme: this.theme || 'snow',
 	            formats: this.formats
 	        });
-	        if (this.content) {
-	            this.quillEditor.pasteHTML(this.content);
-	        }
 	        this.onEditorCreated.emit(this.quillEditor);
 	        // mark model as touched if editor lost focus
 	        this.quillEditor.on('selection-change', function (range) {
@@ -87636,18 +87639,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	    };
 	    QuillEditorComponent.prototype.ngOnChanges = function (changes) {
-	        var min;
-	        var max;
 	        if (changes['readOnly'] && this.quillEditor) {
 	            this.quillEditor.enable(!changes['readOnly'].currentValue);
-	        }
-	        if (this.quillEditor) {
-	            if (changes['minLength']) {
-	                min = changes['minLength'].currentValue;
-	            }
-	            if (changes['maxLength']) {
-	                max = changes['maxLength'].currentValue;
-	            }
 	        }
 	    };
 	    QuillEditorComponent.prototype.writeValue = function (currentValue) {
@@ -87677,7 +87670,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                given: textLength,
 	                minLength: this.minLength
 	            };
-	            valid = textLength >= this.minLength;
+	            valid = textLength >= this.minLength || !textLength;
 	        }
 	        if (this.maxLength) {
 	            err.maxLengthError = {
@@ -87727,7 +87720,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    QuillEditorComponent = __decorate([
 	        core_1.Component({
 	            selector: 'quill-editor',
-	            template: "\n<div></div>\n",
+	            template: "\n  <ng-content select=\"[quill-editor-toolbar]\"></ng-content>\n",
 	            providers: [{
 	                    provide: forms_1.NG_VALUE_ACCESSOR,
 	                    useExisting: core_1.forwardRef(function () { return QuillEditorComponent; }),
