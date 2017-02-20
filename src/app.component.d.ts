@@ -3,4 +3,5 @@ export declare class AppComponent {
     isReadOnly: boolean;
     toggleReadOnly(): void;
     logChange($event: any): void;
+    logSelection($event: any): void;
 }

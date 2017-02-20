@@ -66702,10 +66702,13 @@ var AppComponent = (function () {
     AppComponent.prototype.logChange = function ($event) {
         console.log($event);
     };
+    AppComponent.prototype.logSelection = function ($event) {
+        console.log($event);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'app-root',
-            template: "\n<h3>Default editor</h3>\n<quill-editor></quill-editor>\n\n<h3>Bubble editor</h3>\n<quill-editor theme=\"bubble\"></quill-editor>\n\n<h3>Editor without toolbar + required and ngModule</h3>\n<button (click)=\"toggleReadOnly()\">Toggle ReadOnly</button>\n{{isReadOnly}}\n{{title}}\n<quill-editor [(ngModel)]=\"title\" [maxLength]=\"5\" [minLength]=\"3\" required=\"true\" [readOnly]=\"isReadOnly\" [modules]=\"{toolbar: false}\" (onContentChanged)=\"logChange($event);\"></quill-editor>\n<h3>Custom Toolbar with toolbar title-attributes</h3>\n<quill-editor>\n  <div quill-editor-toolbar>\n    <span class=\"ql-formats\">\n      <button class=\"ql-bold\" [title]=\"'Bold'\"></button>\n    </span>\n    <span class=\"ql-formats\">\n      <select class=\"ql-align\" [title]=\"'Aligment'\">\n        <option selected></option>\n        <option value=\"center\"></option>\n        <option value=\"right\"></option>\n        <option value=\"justify\"></option>\n      </select>\n      <select class=\"ql-align\" [title]=\"'Aligment2'\">\n        <option selected></option>\n        <option value=\"center\"></option>\n        <option value=\"right\"></option>\n        <option value=\"justify\"></option>\n      </select>\n    </span>\n  </div>\n</quill-editor>\n  ",
+            template: "\n<h3>Default editor</h3>\n<quill-editor></quill-editor>\n\n<h3>Bubble editor</h3>\n<quill-editor theme=\"bubble\"></quill-editor>\n\n<h3>Editor without toolbar + required and ngModule</h3>\n<button (click)=\"toggleReadOnly()\">Toggle ReadOnly</button>\n{{isReadOnly}}\n{{title}}\n<quill-editor [(ngModel)]=\"title\" [maxLength]=\"5\" [minLength]=\"3\" required=\"true\" [readOnly]=\"isReadOnly\" [modules]=\"{toolbar: false}\" (onContentChanged)=\"logChange($event);\" (onSelectionChanged)=\"logSelection($event);\"></quill-editor>\n<h3>Custom Toolbar with toolbar title-attributes</h3>\n<quill-editor>\n  <div quill-editor-toolbar>\n    <span class=\"ql-formats\">\n      <button class=\"ql-bold\" [title]=\"'Bold'\"></button>\n    </span>\n    <span class=\"ql-formats\">\n      <select class=\"ql-align\" [title]=\"'Aligment'\">\n        <option selected></option>\n        <option value=\"center\"></option>\n        <option value=\"right\"></option>\n        <option value=\"justify\"></option>\n      </select>\n      <select class=\"ql-align\" [title]=\"'Aligment2'\">\n        <option selected></option>\n        <option value=\"center\"></option>\n        <option value=\"right\"></option>\n        <option value=\"justify\"></option>\n      </select>\n    </span>\n  </div>\n</quill-editor>\n  ",
             styles: ["\n    quill-editor {\n      display: block;\n    }\n    .ng-invalid {\n      border: 1px dashed red;\n    }\n  "],
             encapsulation: core_1.ViewEncapsulation.None
         }), 
@@ -87597,6 +87600,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	        this.onEditorCreated = new core_1.EventEmitter();
 	        this.onContentChanged = new core_1.EventEmitter();
+	        this.onSelectionChanged = new core_1.EventEmitter();
 	        this.onModelChange = function () { };
 	        this.onModelTouched = function () { };
 	    }
@@ -87618,13 +87622,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	        this.onEditorCreated.emit(this.quillEditor);
 	        // mark model as touched if editor lost focus
-	        this.quillEditor.on('selection-change', function (range) {
+	        this.quillEditor.on('selection-change', function (range, oldRange, source) {
+	            _this.onSelectionChanged.emit({
+	                editor: _this.quillEditor,
+	                range: range,
+	                oldRange: oldRange,
+	                source: source
+	            });
 	            if (!range) {
 	                _this.onModelTouched();
 	            }
 	        });
 	        // update model if text changes
-	        this.quillEditor.on('text-change', function (delta, oldDelta) {
+	        this.quillEditor.on('text-change', function (delta, oldDelta, source) {
 	            var html = _this.editorElem.children[0].innerHTML;
 	            var text = _this.quillEditor.getText();
 	            if (html === '<p><br></p>') {
@@ -87634,7 +87644,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _this.onContentChanged.emit({
 	                editor: _this.quillEditor,
 	                html: html,
-	                text: text
+	                text: text,
+	                delta: delta,
+	                oldDelta: oldDelta,
+	                source: source
 	            });
 	        });
 	    };
@@ -87717,6 +87730,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
 	    ], QuillEditorComponent.prototype, "onContentChanged", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_c = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _c) || Object)
+	    ], QuillEditorComponent.prototype, "onSelectionChanged", void 0);
 	    QuillEditorComponent = __decorate([
 	        core_1.Component({
 	            selector: 'quill-editor',
@@ -87733,10 +87750,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            styles: ["\n    .ql-container .ql-editor {\n      min-height: 200px;\n      padding-bottom: 50px;\n    }\n  "],
 	            encapsulation: core_1.ViewEncapsulation.None
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [(typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object])
 	    ], QuillEditorComponent);
 	    return QuillEditorComponent;
-	    var _a, _b, _c;
+	    var _a, _b, _c, _d;
 	}());
 	exports.QuillEditorComponent = QuillEditorComponent;
 
