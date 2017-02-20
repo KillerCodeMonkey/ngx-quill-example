@@ -22,7 +22,7 @@ Quill.register(Block /* or NewBlock */, true);
 <button (click)="toggleReadOnly()">Toggle ReadOnly</button>
 {{isReadOnly}}
 {{title}}
-<quill-editor [(ngModel)]="title" [maxLength]="5" [minLength]="3" required="true" [readOnly]="isReadOnly" [modules]="{toolbar: false}" (onContentChanged)="logChange($event);"></quill-editor>
+<quill-editor [(ngModel)]="title" [maxLength]="5" [minLength]="3" required="true" [readOnly]="isReadOnly" [modules]="{toolbar: false}" (onContentChanged)="logChange($event);" (onSelectionChanged)="logSelection($event);"></quill-editor>
 <h3>Custom Toolbar with toolbar title-attributes</h3>
 <quill-editor>
   <div quill-editor-toolbar>
@@ -65,6 +65,10 @@ export class AppComponent {
   }
 
   logChange($event: any) {
+    console.log($event);
+  }
+
+  logSelection($event: any) {
     console.log($event);
   }
 }
