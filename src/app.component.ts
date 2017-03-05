@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // override p with div tag
 import * as Quill from 'quill';
@@ -14,6 +15,12 @@ Quill.register(Block /* or NewBlock */, true);
   template: `
 <h3>Default editor</h3>
 <quill-editor></quill-editor>
+
+<h3>Reactive Forms and patch value</h3>
+<div [formGroup]="form">
+  <button type="button" (click)="patchValue()">patchValue</button>
+  <quill-editor formControlName="editor"></quill-editor>
+</div>
 
 <h3>Bubble editor</h3>
 <quill-editor theme="bubble"></quill-editor>
@@ -59,6 +66,17 @@ Quill.register(Block /* or NewBlock */, true);
 export class AppComponent {
   title = 'Quill works!';
   isReadOnly = false;
+  form: FormGroup;
+
+  constructor(fb: FormBuilder) {
+    this.form = fb.group({
+      editor: ['test', Validators.required]
+    });
+  }
+
+  patchValue() {
+    this.form.controls['editor'].patchValue(`${this.form.controls['editor'].value} patched!`)
+  }
 
   toggleReadOnly() {
     this.isReadOnly = !this.isReadOnly;
