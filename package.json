@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@types/core-js": "0.9.35",
-    "@types/node": "^7.0.0",
+    "@types/node": "7.0.5",
     "angular2-template-loader": "0.6.0",
     "awesome-typescript-loader": "2.2.4",
     "copy-webpack-plugin": "^4.0.1",
