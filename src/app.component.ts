@@ -10,6 +10,9 @@ Block.tagName = 'DIV';
 // or class NewBlock extends Block {}; NewBlock.tagName = 'DIV';
 Quill.register(Block /* or NewBlock */, true);
 
+import Counter from './counter';
+Quill.register('modules/counter', Counter)
+
 @Component({
   selector: 'app-root',
   template: `
@@ -30,8 +33,8 @@ Quill.register(Block /* or NewBlock */, true);
 {{isReadOnly}}
 {{title}}
 <quill-editor [(ngModel)]="title" [maxLength]="5" [minLength]="3" required="true" [readOnly]="isReadOnly" [modules]="{toolbar: false}" (onContentChanged)="logChange($event);" (onSelectionChanged)="logSelection($event);"></quill-editor>
-<h3>Custom Toolbar with toolbar title-attributes</h3>
-<quill-editor>
+<h3>Custom Toolbar with toolbar title-attributes + Word counter</h3>
+<quill-editor [modules]="{ counter: { container: '#counter', unit: 'word' } }">
   <div quill-editor-toolbar>
     <span class="ql-formats">
       <button class="ql-bold" [title]="'Bold'"></button>
@@ -50,8 +53,12 @@ Quill.register(Block /* or NewBlock */, true);
         <option value="justify"></option>
       </select>
     </span>
+    <span class="ql-formats">
+      <div id="counter"></div>
+    </span>
   </div>
 </quill-editor>
+
   `,
   styles: [`
     quill-editor {
