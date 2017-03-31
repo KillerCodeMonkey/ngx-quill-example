@@ -40,7 +40,6 @@ module.exports = {
     },
 
     devServer: {
-        outputPath: root('dist'),
         watchOptions: {
             poll: true
         },

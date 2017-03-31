@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2015",
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,
@@ -10,7 +10,6 @@
     "sourceMap": false,
     "pretty": true,
     "types": [
-      "core-js",
       "node"
     ]
   },
