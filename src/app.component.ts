@@ -20,10 +20,11 @@ Quill.register('modules/counter', Counter)
 <quill-editor></quill-editor>
 
 <h3>Reactive Forms and patch value</h3>
-<div [formGroup]="form">
+<form [formGroup]="form">
+  {{form.controls.editor.value}}
   <button type="button" (click)="patchValue()">patchValue</button>
-  <quill-editor formControlName="editor"></quill-editor>
-</div>
+  <quill-editor formControlName="editor" (onContentChanged)="logChange($event);"></quill-editor>
+</form>
 
 <h3>Bubble editor</h3>
 <quill-editor theme="bubble"></quill-editor>
@@ -32,7 +33,7 @@ Quill.register('modules/counter', Counter)
 <button (click)="toggleReadOnly()">Toggle ReadOnly</button>
 {{isReadOnly}}
 {{title}}
-<quill-editor [(ngModel)]="title" [maxLength]="5" [minLength]="3" required="true" [readOnly]="isReadOnly" [modules]="{toolbar: false}" (onContentChanged)="logChange($event);" (onSelectionChanged)="logSelection($event);"></quill-editor>
+<quill-editor [(ngModel)]="title" [maxLength]="5" [minLength]="3" [required]="true" [readOnly]="isReadOnly" [modules]="{toolbar: false}" (onContentChanged)="logChange($event);" (onSelectionChanged)="logSelection($event);"></quill-editor>
 <h3>Custom Toolbar with toolbar title-attributes + Word counter</h3>
 <quill-editor [modules]="{ counter: { container: '#counter', unit: 'word' } }">
   <div quill-editor-toolbar>
@@ -77,7 +78,7 @@ export class AppComponent {
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({
-      editor: ['test', Validators.required]
+      editor: ['test']
     });
   }
 

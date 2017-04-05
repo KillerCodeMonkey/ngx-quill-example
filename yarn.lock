@@ -1620,9 +1620,9 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-ngx-quill@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/ngx-quill/-/ngx-quill-1.1.0.tgz#5ed2d99a5c06693192dc25cf438e4c3d06e92d67"
+ngx-quill@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/ngx-quill/-/ngx-quill-1.2.0.tgz#11bc649e1f51519d418e8a274c18f03f46c35817"
   dependencies:
     "@types/quill" "^0.0.29"
     quill "^1.2.0"
