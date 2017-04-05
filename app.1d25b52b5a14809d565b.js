@@ -41935,7 +41935,7 @@ let AppComponent = class AppComponent {
         this.title = 'Quill works!';
         this.isReadOnly = false;
         this.form = fb.group({
-            editor: ['test', forms_1.Validators.required]
+            editor: ['test']
         });
     }
     patchValue() {
@@ -41959,10 +41959,11 @@ AppComponent = __decorate([
 <quill-editor></quill-editor>
 
 <h3>Reactive Forms and patch value</h3>
-<div [formGroup]="form">
+<form [formGroup]="form">
+  {{form.controls.editor.value}}
   <button type="button" (click)="patchValue()">patchValue</button>
-  <quill-editor formControlName="editor"></quill-editor>
-</div>
+  <quill-editor formControlName="editor" (onContentChanged)="logChange($event);"></quill-editor>
+</form>
 
 <h3>Bubble editor</h3>
 <quill-editor theme="bubble"></quill-editor>
@@ -41971,7 +41972,7 @@ AppComponent = __decorate([
 <button (click)="toggleReadOnly()">Toggle ReadOnly</button>
 {{isReadOnly}}
 {{title}}
-<quill-editor [(ngModel)]="title" [maxLength]="5" [minLength]="3" required="true" [readOnly]="isReadOnly" [modules]="{toolbar: false}" (onContentChanged)="logChange($event);" (onSelectionChanged)="logSelection($event);"></quill-editor>
+<quill-editor [(ngModel)]="title" [maxLength]="5" [minLength]="3" [required]="true" [readOnly]="isReadOnly" [modules]="{toolbar: false}" (onContentChanged)="logChange($event);" (onSelectionChanged)="logSelection($event);"></quill-editor>
 <h3>Custom Toolbar with toolbar title-attributes + Word counter</h3>
 <quill-editor [modules]="{ counter: { container: '#counter', unit: 'word' } }">
   <div quill-editor-toolbar>
@@ -74747,6 +74748,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            theme: this.theme || 'snow',
 	            formats: this.formats
 	        });
+	        if (this.content) {
+	            this.quillEditor.pasteHTML(this.content);
+	        }
 	        this.onEditorCreated.emit(this.quillEditor);
 	        // mark model as touched if editor lost focus
 	        this.quillEditor.on('selection-change', function (range, oldRange, source) {
@@ -74754,7 +74758,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                editor: _this.quillEditor,
 	                range: range,
 	                oldRange: oldRange,
-	                source: source
+	                source: source,
+	                bounds: _this.bounds || document.body
 	            });
 	            if (!range) {
 	                _this.onModelTouched();
@@ -74805,19 +74810,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	        var err = {}, valid = true;
 	        var textLength = this.quillEditor.getText().trim().length;
-	        if (this.minLength) {
+	        if (this.minLength && textLength && textLength < this.minLength) {
 	            err.minLengthError = {
 	                given: textLength,
 	                minLength: this.minLength
 	            };
-	            valid = textLength >= this.minLength || !textLength;
+	            valid = false;
 	        }
-	        if (this.maxLength) {
+	        if (this.maxLength && textLength > this.maxLength) {
 	            err.maxLengthError = {
 	                given: textLength,
 	                maxLength: this.maxLength
 	            };
-	            valid = textLength <= this.maxLength && valid;
+	            valid = false;
+	        }
+	        if (this.required && !textLength) {
+	            err.requiredError = {
+	                empty: true
+	            };
+	            valid = false;
 	        }
 	        return valid ? null : err;
 	    };
@@ -74849,8 +74860,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	], QuillEditorComponent.prototype, "minLength", void 0);
 	__decorate([
 	    core_1.Input(),
+	    __metadata("design:type", Boolean)
+	], QuillEditorComponent.prototype, "required", void 0);
+	__decorate([
+	    core_1.Input(),
 	    __metadata("design:type", Array)
 	], QuillEditorComponent.prototype, "formats", void 0);
+	__decorate([
+	    core_1.Input(),
+	    __metadata("design:type", Object)
+	], QuillEditorComponent.prototype, "bounds", void 0);
 	__decorate([
 	    core_1.Output(),
 	    __metadata("design:type", core_1.EventEmitter)
@@ -74876,7 +74895,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                useExisting: core_1.forwardRef(function () { return QuillEditorComponent_1; }),
 	                multi: true
 	            }],
-	        styles: ["\n    .ql-container .ql-editor {\n      min-height: 200px;\n      padding-bottom: 50px;\n    }\n  "],
 	        encapsulation: core_1.ViewEncapsulation.None
 	    }),
 	    __metadata("design:paramtypes", [core_1.ElementRef])
