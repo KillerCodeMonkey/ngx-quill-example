@@ -1,5 +1,11 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
+
+import { QuillEditorComponent } from 'ngx-quill/src/quill-editor.component';
+
+import 'rxjs/add/operator/debounceTime'
+import 'rxjs/add/operator/distinctUntilChanged';
 
 // override p with div tag
 import * as Quill from 'quill';
@@ -23,7 +29,7 @@ Quill.register('modules/counter', Counter)
 <form [formGroup]="form">
   {{form.controls.editor.value}}
   <button type="button" (click)="patchValue()">patchValue</button>
-  <quill-editor formControlName="editor" (onContentChanged)="logChange($event);"></quill-editor>
+  <quill-editor #editor formControlName="editor"></quill-editor>
 </form>
 
 <h3>Bubble editor</h3>
@@ -80,6 +86,19 @@ export class AppComponent {
     this.form = fb.group({
       editor: ['test']
     });
+  }
+  @ViewChild('editor') editor: QuillEditorComponent
+
+  ngOnInit() {
+    this.form
+      .controls
+      .editor
+      .valueChanges
+      .debounceTime(400)
+      .distinctUntilChanged()
+      .subscribe(data => {
+        console.log('native fromControl value changes with debounce', data)
+      });
   }
 
   patchValue() {
