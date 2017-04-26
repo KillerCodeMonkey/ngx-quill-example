@@ -22,9 +22,9 @@
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-4.0.1.tgz#fd5debb2d3f6474350965e71c2674e2170d7cfcb"
 
-"@angular/platform-browser@^^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-4.0.1.tgz#4b9efbeb2fbb900de188743b988802d3aa2b33ff"
+"@angular/platform-browser@^4.0.1":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-4.0.3.tgz#170b18d5af4ee02b248aa6a1f1e0584ac841681e"
 
 "@types/core-js@^0.9.41":
   version "0.9.41"
@@ -1620,9 +1620,9 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-ngx-quill@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/ngx-quill/-/ngx-quill-1.2.0.tgz#11bc649e1f51519d418e8a274c18f03f46c35817"
+ngx-quill@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/ngx-quill/-/ngx-quill-1.2.1.tgz#8b9ab9f1ddf094f62759cad2b6965656200d5281"
   dependencies:
     "@types/quill" "^0.0.29"
     quill "^1.2.0"
