@@ -23,7 +23,7 @@ Quill.register('modules/counter', Counter)
   selector: 'app-root',
   template: `
 <h3>Default editor</h3>
-<quill-editor></quill-editor>
+<quill-editor (onEditorCreated)="setFocus($event)"></quill-editor>
 
 <h3>Reactive Forms and patch value</h3>
 <form [formGroup]="form">
@@ -106,6 +106,10 @@ export class AppComponent {
       .subscribe(data => {
         console.log('view child + directly subscription', data)
       });
+  }
+
+  setFocus($event) {
+    $event.focus();
   }
 
   patchValue() {

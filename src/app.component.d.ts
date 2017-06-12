@@ -9,6 +9,7 @@ export declare class AppComponent {
     constructor(fb: FormBuilder);
     editor: QuillEditorComponent;
     ngOnInit(): void;
+    setFocus($event: any): void;
     patchValue(): void;
     toggleReadOnly(): void;
     logChange($event: any): void;
