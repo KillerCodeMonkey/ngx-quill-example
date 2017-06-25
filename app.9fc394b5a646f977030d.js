@@ -31319,7 +31319,7 @@ AppComponent = __decorate([
 </form>
 
 <h3>Bubble editor</h3>
-<quill-editor theme="bubble"></quill-editor>
+<quill-editor theme="bubble" placeholder=" "></quill-editor>
 
 <h3>Editor without toolbar + required and ngModule</h3>
 <button (click)="toggleReadOnly()">Toggle ReadOnly</button>
