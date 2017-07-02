@@ -31063,6 +31063,10 @@ let QuillEditorComponent = QuillEditorComponent_1 = class QuillEditorComponent {
     ngAfterViewInit() {
         const toolbarElem = this.elementRef.nativeElement.querySelector('[quill-editor-toolbar]');
         let modules = this.modules || this.defaultModules;
+        let placeholder = 'Insert text here ...';
+        if (this.placeholder !== null && this.placeholder !== undefined) {
+            placeholder = this.placeholder.trim();
+        }
         if (toolbarElem) {
             modules['toolbar'] = toolbarElem;
         }
@@ -31070,10 +31074,11 @@ let QuillEditorComponent = QuillEditorComponent_1 = class QuillEditorComponent {
         this.editorElem = this.elementRef.nativeElement.querySelector('[quill-editor-element]');
         this.quillEditor = new Quill(this.editorElem, {
             modules: modules,
-            placeholder: this.placeholder || 'Insert text here ...',
+            placeholder: placeholder,
             readOnly: this.readOnly || false,
             theme: this.theme || 'snow',
-            formats: this.formats
+            formats: this.formats,
+            bounds: this.bounds || document.body
         });
         if (this.content) {
             const contents = this.quillEditor.clipboard.convert(this.content);
@@ -31086,8 +31091,7 @@ let QuillEditorComponent = QuillEditorComponent_1 = class QuillEditorComponent {
                 editor: this.quillEditor,
                 range: range,
                 oldRange: oldRange,
-                source: source,
-                bounds: this.bounds || document.body
+                source: source
             });
             if (!range) {
                 this.onModelTouched();
