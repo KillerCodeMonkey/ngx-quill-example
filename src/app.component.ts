@@ -26,10 +26,12 @@ Quill.register('modules/counter', Counter)
 <quill-editor (onEditorCreated)="setFocus($event)"></quill-editor>
 
 <h3>Reactive Forms and patch value</h3>
+<button type="button" (click)="hide=!(!!hide)">hide / show</button>
 <form [formGroup]="form">
   {{form.controls.editor.value}}
   <button type="button" (click)="patchValue()">patchValue</button>
-  <quill-editor #editor formControlName="editor"></quill-editor>
+
+  <quill-editor #editor [style.display]="hide ? 'none' : 'block'" formControlName="editor"></quill-editor>
 </form>
 
 <h3>Bubble editor</h3>
