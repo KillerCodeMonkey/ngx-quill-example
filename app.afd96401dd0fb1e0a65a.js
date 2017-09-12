@@ -32393,6 +32393,9 @@ Block.tagName = 'DIV';
 Quill.register(Block, true);
 const counter_1 = __webpack_require__(135);
 Quill.register('modules/counter', counter_1.default);
+var Font = Quill.import('formats/font');
+Font.whitelist = ['mirza', 'aref'];
+Quill.register(Font, true);
 let AppComponent = class AppComponent {
     constructor(fb) {
         this.title = 'Quill works!';
@@ -32466,9 +32469,11 @@ AppComponent = __decorate([
 <quill-editor [modules]="{ counter: { container: '#counter', unit: 'word' } }">
   <div quill-editor-toolbar>
     <span class="ql-formats">
-      <button class="ql-bold" [title]="'Bold'"></button>
-    </span>
-    <span class="ql-formats">
+      <select class="ql-font">
+        <option value="aref">Aref Ruqaa</option>
+        <option value="mirza">Mirza</option>
+        <option selected>Roboto</option>
+      </select>
       <select class="ql-align" [title]="'Aligment'">
         <option selected></option>
         <option value="center"></option>
@@ -32496,6 +32501,31 @@ AppComponent = __decorate([
     .ng-invalid {
       border: 1px dashed red;
     }
+
+    /* Set default font-family */
+    [quill-editor-element] {
+      font-family: "Roboto";
+    }
+
+    /* Set dropdown font-families */
+    [quill-editor-toolbar] .ql-font span[data-label="Aref Ruqaa"]::before {
+      font-family: "Aref Ruqaa";
+    }
+    [quill-editor-toolbar] .ql-font span[data-label="Mirza"]::before {
+      font-family: "Mirza";
+    }
+    [quill-editor-toolbar] .ql-font span[data-label="Roboto"]::before {
+      font-family: "Roboto";
+    }
+
+    /* Set content font-families */
+    .ql-font-mirza {
+      font-family: "Mirza";
+    }
+    .ql-font-aref {
+      font-family: "Aref Ruqaa";
+    }
+    /* We do not set Aref Ruqaa since it is the default font */
   `],
         encapsulation: core_1.ViewEncapsulation.None
     }),
