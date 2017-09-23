@@ -8,7 +8,7 @@ import 'rxjs/add/operator/debounceTime'
 import 'rxjs/add/operator/distinctUntilChanged';
 
 // override p with div tag
-import * as Quill from 'quill';
+import Quill from 'quill';
 const Parchment = Quill.import('parchment');
 let Block = Parchment.query('block');
 
