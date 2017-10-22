@@ -40,6 +40,9 @@ Quill.register(Font, true);
   <quill-editor #editor [style.display]="hide ? 'none' : 'block'" formControlName="editor"></quill-editor>
 </form>
 
+<h3>Formula editor</h3>
+<quill-editor #editor [modules]="{formula: true, toolbar: [['formula']]}"></quill-editor>
+
 <h3>Bubble editor</h3>
 <quill-editor theme="bubble" placeholder=" "></quill-editor>
 
