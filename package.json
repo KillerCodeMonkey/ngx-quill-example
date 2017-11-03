@@ -1,6 +1,6 @@
 {
   "name": "ngx-quill-example",
-  "version": "1.5.1",
+  "version": "2.0.0",
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --progress --port 3000",
