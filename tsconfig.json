@@ -1,21 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es2015",
+    "target": "es5",
     "module": "es2015",
-    "declaration": true,
-    "removeComments": true,
+    "lib": ["es6", "dom"],
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
     "sourceMap": false,
+    "moduleResolution": "node",
     "pretty": true,
     "types": [
-      "node"
+      "core-js"
     ]
-  },
-  "compileOnSave": false,
-  "buildOnSave": false,
-  "awesomeTypescriptLoaderOptions": {
-    "forkChecker": false
   }
 }
