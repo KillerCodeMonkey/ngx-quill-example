@@ -39633,7 +39633,7 @@ Font.whitelist = ['mirza', 'aref'];
 __WEBPACK_IMPORTED_MODULE_5_quill___default.a.register(Font, true);
 var AppComponent = /** @class */ (function () {
     function AppComponent(fb) {
-        this.title = 'Quill works!';
+        this.title = '<ul><li>I am example content</li><li><u>And this, too</u></li></ul>';
         this.isReadOnly = false;
         this.form = fb.group({
             editor: ['test']
