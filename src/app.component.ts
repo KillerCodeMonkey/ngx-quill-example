@@ -116,7 +116,7 @@ Quill.register(Font, true);
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  title = 'Quill works!';
+  title = '<ul><li>I am example content</li><li><u>And this, too</u></li></ul>';
   isReadOnly = false;
   form: FormGroup;
 
