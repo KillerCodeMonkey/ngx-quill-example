@@ -22,7 +22,7 @@ Quill.register('modules/counter', Counter)
 // Add fonts to whitelist
 var Font = Quill.import('formats/font');
 // We do not add Aref Ruqaa since it is the default
-Font.whitelist = ['mirza', 'aref'];
+Font.whitelist = ['mirza', 'aref', 'sans-serif', 'monospace', 'serif'];
 Quill.register(Font, true);
 
 @Component({
