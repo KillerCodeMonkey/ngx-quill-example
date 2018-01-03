@@ -66,6 +66,10 @@ module.exports = {
       chunksSortMode: 'dependency'
     }),
 
-    new webpack.optimize.OccurrenceOrderPlugin(true)
+    new webpack.optimize.OccurrenceOrderPlugin(true),
+
+    new webpack.ProvidePlugin({
+      'window.Quill': 'quill/dist/quill.js'
+    })
   ]
 }

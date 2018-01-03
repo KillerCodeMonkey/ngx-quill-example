@@ -7,8 +7,13 @@ import { QuillEditorComponent } from 'ngx-quill/src/quill-editor.component';
 import 'rxjs/add/operator/debounceTime'
 import 'rxjs/add/operator/distinctUntilChanged';
 
-// override p with div tag
 import Quill from 'quill';
+
+// add image resize module
+import ImageResize from 'quill-image-resize-module';
+Quill.register('modules/imageResize', ImageResize);
+
+// override p with div tag
 const Parchment = Quill.import('parchment');
 let Block = Parchment.query('block');
 
@@ -40,8 +45,8 @@ Quill.register(Font, true);
   <quill-editor #editor [style.display]="hide ? 'none' : 'block'" formControlName="editor"></quill-editor>
 </form>
 
-<h3>Formula editor</h3>
-<quill-editor #editor [modules]="{formula: true, toolbar: [['formula']]}"></quill-editor>
+<h3>Formula & image resize editor</h3>
+<quill-editor #editor [modules]="{formula: true, toolbar: [['formula'], ['image']], imageResize: {}}"></quill-editor>
 
 <h3>Bubble editor</h3>
 <quill-editor theme="bubble" placeholder=" "></quill-editor>
