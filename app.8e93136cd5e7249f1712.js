@@ -32693,7 +32693,6 @@ var QuillEditorComponent = (function () {
             this.quillEditor.setContents(contents);
             this.quillEditor.history.clear();
         }
-        console.log("init", this.content);
         this.onEditorCreated.emit(this.quillEditor);
         // mark model as touched if editor lost focus
         this.quillEditor.on('selection-change', function (range, oldRange, source) {
@@ -32726,13 +32725,18 @@ var QuillEditorComponent = (function () {
         });
     };
     QuillEditorComponent.prototype.ngOnChanges = function (changes) {
-        if (changes['readOnly'] && this.quillEditor) {
+        if (!this.quillEditor) {
+            return null;
+        }
+        if (changes['readOnly']) {
             this.quillEditor.enable(!changes['readOnly'].currentValue);
+        }
+        if (changes['placeholder']) {
+            this.quillEditor.root.dataset.placeholder = changes['placeholder'].currentValue;
         }
     };
     QuillEditorComponent.prototype.writeValue = function (currentValue) {
         this.content = currentValue;
-        console.log("writeValue", this.content);
         if (this.quillEditor) {
             if (currentValue) {
                 this.quillEditor.setContents(this.quillEditor.clipboard.convert(this.content));
@@ -32819,7 +32823,6 @@ var QuillEditorComponent = (function () {
 }());
 
 //# sourceMappingURL=quill-editor.component.js.map
-
 
 /***/ }),
 /* 76 */
@@ -39673,6 +39676,7 @@ var AppComponent = /** @class */ (function () {
     function AppComponent(fb) {
         this.title = '<ul><li>I am example content</li><li><u>And this, too</u></li></ul>';
         this.isReadOnly = false;
+        this.placeholder = 'placeholder';
         this.form = fb.group({
             editor: ['test']
         });
@@ -39716,7 +39720,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
             selector: 'app-root',
-            template: "\n<h3>Default editor</h3>\n<quill-editor [style]=\"{height: '200px'}\" (onEditorCreated)=\"setFocus($event)\"></quill-editor>\n\n<h3>Reactive Forms and patch value</h3>\n<button type=\"button\" (click)=\"hide=!(!!hide)\">hide / show</button>\n<form [formGroup]=\"form\">\n  {{form.controls.editor.value}}\n  <button type=\"button\" (click)=\"patchValue()\">patchValue</button>\n\n  <quill-editor #editor [style.display]=\"hide ? 'none' : 'block'\" formControlName=\"editor\"></quill-editor>\n</form>\n\n<h3>Formula & image resize editor</h3>\n<quill-editor #editor [modules]=\"{formula: true, toolbar: [['formula'], ['image']], imageResize: {}}\"></quill-editor>\n\n<h3>Bubble editor</h3>\n<quill-editor theme=\"bubble\" placeholder=\" \"></quill-editor>\n\n<h3>Editor without toolbar + required and ngModule</h3>\n<button (click)=\"toggleReadOnly()\">Toggle ReadOnly</button>\n{{isReadOnly}}\n{{title}}\n<quill-editor [(ngModel)]=\"title\" [maxLength]=\"5\" [minLength]=\"3\" [required]=\"true\" [readOnly]=\"isReadOnly\" [modules]=\"{toolbar: false}\" (onContentChanged)=\"logChange($event);\" (onSelectionChanged)=\"logSelection($event);\"></quill-editor>\n<h3>Custom Toolbar with toolbar title-attributes + Word counter</h3>\n<quill-editor [modules]=\"{ counter: { container: '#counter', unit: 'word' } }\">\n  <div quill-editor-toolbar>\n    <span class=\"ql-formats\">\n      <select class=\"ql-font\">\n        <option value=\"aref\">Aref Ruqaa</option>\n        <option value=\"mirza\">Mirza</option>\n        <option selected>Roboto</option>\n      </select>\n      <select class=\"ql-align\" [title]=\"'Aligment'\">\n        <option selected></option>\n        <option value=\"center\"></option>\n        <option value=\"right\"></option>\n        <option value=\"justify\"></option>\n      </select>\n      <select class=\"ql-align\" [title]=\"'Aligment2'\">\n        <option selected></option>\n        <option value=\"center\"></option>\n        <option value=\"right\"></option>\n        <option value=\"justify\"></option>\n      </select>\n    </span>\n    <span class=\"ql-formats\">\n      <div id=\"counter\"></div>\n    </span>\n  </div>\n</quill-editor>\n\n  ",
+            template: "\n<h3>Default editor</h3>\n<quill-editor [style]=\"{height: '200px'}\" (onEditorCreated)=\"setFocus($event)\"></quill-editor>\n\n<h3>Reactive Forms and patch value</h3>\n<button type=\"button\" (click)=\"hide=!(!!hide)\">hide / show</button>\n<form [formGroup]=\"form\">\n  {{form.controls.editor.value}}\n  <button type=\"button\" (click)=\"patchValue()\">patchValue</button>\n\n  <quill-editor #editor [style.display]=\"hide ? 'none' : 'block'\" formControlName=\"editor\"></quill-editor>\n</form>\n\n<h3>Formula & image resize editor</h3>\n<quill-editor #editor [modules]=\"{formula: true, toolbar: [['formula'], ['image']], imageResize: {}}\"></quill-editor>\n\n<h3>Bubble editor <button type=\"button\" (click)=\"placeholder=placeholder + '!'\">Change placeholder</button></h3>\n<quill-editor theme=\"bubble\" [placeholder]=\"placeholder\"></quill-editor>\n\n<h3>Editor without toolbar + required and ngModule</h3>\n<button (click)=\"toggleReadOnly()\">Toggle ReadOnly</button>\n{{isReadOnly}}\n{{title}}\n<quill-editor [(ngModel)]=\"title\" [maxLength]=\"5\" [minLength]=\"3\" [required]=\"true\" [readOnly]=\"isReadOnly\" [modules]=\"{toolbar: false}\" (onContentChanged)=\"logChange($event);\" (onSelectionChanged)=\"logSelection($event);\"></quill-editor>\n<h3>Custom Toolbar with toolbar title-attributes + Word counter</h3>\n<quill-editor [modules]=\"{ counter: { container: '#counter', unit: 'word' } }\">\n  <div quill-editor-toolbar>\n    <span class=\"ql-formats\">\n      <select class=\"ql-font\">\n        <option value=\"aref\">Aref Ruqaa</option>\n        <option value=\"mirza\">Mirza</option>\n        <option selected>Roboto</option>\n      </select>\n      <select class=\"ql-align\" [title]=\"'Aligment'\">\n        <option selected></option>\n        <option value=\"center\"></option>\n        <option value=\"right\"></option>\n        <option value=\"justify\"></option>\n      </select>\n      <select class=\"ql-align\" [title]=\"'Aligment2'\">\n        <option selected></option>\n        <option value=\"center\"></option>\n        <option value=\"right\"></option>\n        <option value=\"justify\"></option>\n      </select>\n    </span>\n    <span class=\"ql-formats\">\n      <div id=\"counter\"></div>\n    </span>\n  </div>\n</quill-editor>\n\n  ",
             styles: ["\n    quill-editor {\n      display: block;\n    }\n    .ng-invalid {\n      border: 1px dashed red;\n    }\n\n    /* Set default font-family */\n    [quill-editor-element] {\n      font-family: \"Roboto\";\n    }\n\n    /* Set dropdown font-families */\n    [quill-editor-toolbar] .ql-font span[data-label=\"Aref Ruqaa\"]::before {\n      font-family: \"Aref Ruqaa\";\n    }\n    [quill-editor-toolbar] .ql-font span[data-label=\"Mirza\"]::before {\n      font-family: \"Mirza\";\n    }\n    [quill-editor-toolbar] .ql-font span[data-label=\"Roboto\"]::before {\n      font-family: \"Roboto\";\n    }\n\n    /* Set content font-families */\n    .ql-font-mirza {\n      font-family: \"Mirza\";\n    }\n    .ql-font-aref {\n      font-family: \"Aref Ruqaa\";\n    }\n    /* We do not set Aref Ruqaa since it is the default font */\n  "],
             encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* ViewEncapsulation */].None
         }),
