@@ -48,8 +48,8 @@ Quill.register(Font, true);
 <h3>Formula & image resize editor</h3>
 <quill-editor #editor [modules]="{formula: true, toolbar: [['formula'], ['image']], imageResize: {}}"></quill-editor>
 
-<h3>Bubble editor</h3>
-<quill-editor theme="bubble" placeholder=" "></quill-editor>
+<h3>Bubble editor <button type="button" (click)="placeholder=placeholder + '!'">Change placeholder</button></h3>
+<quill-editor theme="bubble" [placeholder]="placeholder"></quill-editor>
 
 <h3>Editor without toolbar + required and ngModule</h3>
 <button (click)="toggleReadOnly()">Toggle ReadOnly</button>
@@ -123,6 +123,7 @@ Quill.register(Font, true);
 export class AppComponent {
   title = '<ul><li>I am example content</li><li><u>And this, too</u></li></ul>';
   isReadOnly = false;
+  placeholder = 'placeholder';
   form: FormGroup;
 
   constructor(fb: FormBuilder) {
