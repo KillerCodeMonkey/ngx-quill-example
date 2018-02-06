@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 
 import { QuillEditorComponent } from 'ngx-quill/src/quill-editor.component';
@@ -41,8 +41,9 @@ Quill.register(Font, true);
 <form [formGroup]="form">
   {{form.controls.editor.value}}
   <button type="button" (click)="patchValue()">patchValue</button>
+  <button type="button" (click)="setControl()">setControl</button>
 
-  <quill-editor #editor [style.display]="hide ? 'none' : 'block'" formControlName="editor"></quill-editor>
+  <quill-editor #editor [style.display]="hide ? 'none' : 'block'" [formControl]="form.controls['editor']"></quill-editor>
 </form>
 
 <h3>Formula & image resize editor</h3>
@@ -150,6 +151,10 @@ export class AppComponent {
       .subscribe(data => {
         console.log('view child + directly subscription', data)
       });
+  }
+
+  setControl() {
+    this.form.setControl('editor', new FormControl('test - new Control'))
   }
 
   setFocus($event) {
