@@ -46,8 +46,8 @@ Quill.register(Font, true);
   <quill-editor #editor [style.display]="hide ? 'none' : 'block'" [formControl]="form.controls['editor']"></quill-editor>
 </form>
 
-<h3>Formula & image resize editor</h3>
-<quill-editor #editor [modules]="{formula: true, toolbar: [['formula'], ['image']], imageResize: {}}"></quill-editor>
+<h3>Formula & image resize editor & Keybinding on 'b'</h3>
+<quill-editor #editor [modules]="modules" (onEditorCreated)="addBindingCreated($event)"></quill-editor>
 
 <h3>Bubble editor <button type="button" (click)="placeholder=placeholder + '!'">Change placeholder</button></h3>
 <quill-editor theme="bubble" [placeholder]="placeholder"></quill-editor>
@@ -126,11 +126,17 @@ export class AppComponent {
   isReadOnly = false;
   placeholder = 'placeholder';
   form: FormGroup;
+  modules = {};
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({
       editor: ['test']
     });
+
+    this.modules = {
+      formula: true,
+      toolbar: [['formula'], ['image']], imageResize: {}
+    }
   }
   @ViewChild('editor') editor: QuillEditorComponent
 
@@ -151,6 +157,14 @@ export class AppComponent {
       .subscribe(data => {
         console.log('view child + directly subscription', data)
       });
+  }
+
+  addBindingCreated(quill) {
+    quill.keyboard.addBinding({
+      key: 'B'
+    }, (range, context) => {
+      console.log('KEYBINDING B', range, context);
+    });
   }
 
   setControl() {
