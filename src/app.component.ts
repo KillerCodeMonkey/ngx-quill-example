@@ -13,6 +13,9 @@ import Quill from 'quill';
 import ImageResize from 'quill-image-resize-module';
 Quill.register('modules/imageResize', ImageResize);
 
+// add mention module
+import 'quill-mention';
+
 // override p with div tag
 const Parchment = Quill.import('parchment');
 let Block = Parchment.query('block');
@@ -129,13 +132,32 @@ export class AppComponent {
   modules = {};
 
   constructor(fb: FormBuilder) {
+    const values = [
+      { id: 1, value: 'Fredrik Sundqvist' },
+      { id: 2, value: 'Patrik Sjölin' }
+    ];
+
     this.form = fb.group({
       editor: ['test']
     });
 
     this.modules = {
       formula: true,
-      toolbar: [['formula'], ['image']], imageResize: {}
+      toolbar: [['formula'], ['image']],
+      imageResize: {},
+      mention: {
+        allowedChars: /^[A-Za-z\sÅÄÖåäö]*$/,
+        source: function (searchTerm) {
+          if (searchTerm.length === 0) {
+            this.renderList(values, searchTerm);
+          } else {
+            const matches = [];
+            for (let i = 0; i < values.length; i++)
+              if (~values[i].value.toLowerCase().indexOf(searchTerm)) matches.push(values[i]);
+            this.renderList(matches, searchTerm);
+          }
+        },
+      }
     }
   }
   @ViewChild('editor') editor: QuillEditorComponent
