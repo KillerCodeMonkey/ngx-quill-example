@@ -1,11 +1,11 @@
+
 import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs/Observable';
+
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { QuillEditorComponent } from 'ngx-quill/src/quill-editor.component';
-
-import 'rxjs/add/operator/debounceTime'
-import 'rxjs/add/operator/distinctUntilChanged';
 
 import Quill from 'quill';
 
@@ -166,16 +166,20 @@ export class AppComponent {
     this.form
       .controls
       .editor
-      .valueChanges
-      .debounceTime(400)
-      .distinctUntilChanged()
+      .valueChanges.pipe(
+        debounceTime(400),
+        distinctUntilChanged()
+      )
       .subscribe(data => {
         console.log('native fromControl value changes with debounce', data)
       });
 
     this.editor
-      .onContentChanged.debounceTime(400)
-      .distinctUntilChanged()
+      .onContentChanged
+      .pipe(
+        debounceTime(400),
+        distinctUntilChanged()
+      )
       .subscribe(data => {
         console.log('view child + directly subscription', data)
       });
