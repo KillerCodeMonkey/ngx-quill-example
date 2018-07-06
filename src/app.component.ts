@@ -88,6 +88,17 @@ Quill.register(Font, true);
   </div>
 </quill-editor>
 
+<h3>Fomat - object</h3>
+<pre><code>
+{{ objectFormat | json }}
+</code></pre>
+<quill-editor *ngIf="show" format="object" [(ngModel)]="objectFormat"></quill-editor>
+
+<h3>Fomat - Text</h3>
+<pre><code>
+{{ textFormat }}
+</code></pre>
+<quill-editor format="text" [(ngModel)]="textFormat"></quill-editor>
   `,
   styles: [`
     quill-editor {
@@ -130,6 +141,12 @@ export class AppComponent {
   placeholder = 'placeholder';
   form: FormGroup;
   modules = {};
+  textFormat = 'Hello World!';
+  objectFormat = [
+    { insert: 'Hello ' },
+    { insert: 'World!', attributes: { bold: true } },
+    { insert: '\n' }
+  ];
 
   constructor(fb: FormBuilder) {
     const values = [
