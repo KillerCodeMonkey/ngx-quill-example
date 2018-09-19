@@ -1,11 +1,10 @@
 
-import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 
-import { QuillEditorComponent } from 'ngx-quill/src/quill-editor.component';
+import { QuillEditorComponent } from 'ngx-quill';
 
 import Quill from 'quill';
 
