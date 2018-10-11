@@ -163,14 +163,14 @@ export class AppComponent {
       imageResize: {},
       mention: {
         allowedChars: /^[A-Za-z\sÅÄÖåäö]*$/,
-        source: function (searchTerm) {
+        source: function (searchTerm, renderList) {
           if (searchTerm.length === 0) {
-            this.renderList(values, searchTerm);
+            renderList(values, searchTerm);
           } else {
             const matches = [];
             for (let i = 0; i < values.length; i++)
               if (~values[i].value.toLowerCase().indexOf(searchTerm)) matches.push(values[i]);
-            this.renderList(matches, searchTerm);
+            renderList(matches, searchTerm);
           }
         },
       }
