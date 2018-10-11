@@ -48,7 +48,7 @@ Quill.register(Font, true);
   <quill-editor #editor [style.display]="hide ? 'none' : 'block'" [formControl]="form.controls['editor']"></quill-editor>
 </form>
 
-<h3>Formula & image resize editor & Keybinding on 'b'</h3>
+<h3>Formula & image resize editor & Keybinding on 'b' and 'shift + b'</h3>
 <quill-editor #editor [modules]="modules" (onEditorCreated)="addBindingCreated($event)"></quill-editor>
 
 <h3>Bubble editor <button type="button" (click)="placeholder=placeholder + '!'">Change placeholder</button></h3>
@@ -203,9 +203,16 @@ export class AppComponent {
 
   addBindingCreated(quill) {
     quill.keyboard.addBinding({
-      key: 'B'
+      key: 'b'
     }, (range, context) => {
       console.log('KEYBINDING B', range, context);
+    });
+
+    quill.keyboard.addBinding({
+      key: 'B',
+      shiftKey: true
+    }, (range, context) => {
+      console.log('KEYBINDING SHIFT + B', range, context);
     });
   }
 
