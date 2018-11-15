@@ -40,12 +40,13 @@ Quill.register(Font, true);
 
 <h3>Reactive Forms and patch value</h3>
 <button type="button" (click)="hide=!(!!hide)">hide / show</button>
-<form [formGroup]="form">
+<button type="button" (click)="form.enabled ? form.disable() : form.enable()">disable / enable</button>
+<form [formGroup]="form" >
   {{form.controls.editor.value}}
   <button type="button" (click)="patchValue()">patchValue</button>
   <button type="button" (click)="setControl()">setControl</button>
 
-  <quill-editor #editor [style.display]="hide ? 'none' : 'block'" [formControl]="form.controls['editor']"></quill-editor>
+  <quill-editor #editor [style.display]="hide ? 'none' : 'block'" [style]="{ backgroundColor: 'gray'}" [formControl]="form.controls['editor']"></quill-editor>
 </form>
 
 <h3>Formula & image resize editor & Keybinding on 'b' and 'shift + b'</h3>
