@@ -14,7 +14,7 @@ import { QuillModule } from 'ngx-quill';
     FormsModule,
     ReactiveFormsModule,
 
-    QuillModule
+    QuillModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
