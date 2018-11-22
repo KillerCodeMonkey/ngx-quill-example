@@ -38,11 +38,21 @@ Quill.register(Font, true);
 <h3>Default editor</h3>
 <quill-editor [style]="{height: '200px'}" (onEditorCreated)="setFocus($event)"></quill-editor>
 
+<h3>Sanitize html</h3>
+<button (click)="dangerousModel = dangerousHtml">Set dangeours HTML</button>
+<pre><code>{{ dangerousHtml }}</code></pre>
+<quill-editor [(ngModel)]="dangerousModel" [sanitize]="true"></quill-editor>
+
+<h3>Without html Sanitize</h3>
+<button (click)="dangerousModel2 = dangerousHtml">Set dangeours HTML</button>
+<pre><code>{{ dangerousHtml }}</code></pre>
+<quill-editor [(ngModel)]="dangerousModel2"></quill-editor>
+
 <h3>Reactive Forms and patch value</h3>
 <button type="button" (click)="hide=!(!!hide)">hide / show</button>
 <button type="button" (click)="form.enabled ? form.disable() : form.enable()">disable / enable</button>
 <form [formGroup]="form" >
-  {{form.controls.editor.value}}
+  {{ form.get('editor').value }}
   <button type="button" (click)="patchValue()">patchValue</button>
   <button type="button" (click)="setControl()">setControl</button>
 
@@ -92,7 +102,7 @@ Quill.register(Font, true);
 <pre><code>
 {{ objectFormat | json }}
 </code></pre>
-<quill-editor *ngIf="show" format="object" [(ngModel)]="objectFormat"></quill-editor>
+<quill-editor format="object" [(ngModel)]="objectFormat"></quill-editor>
 
 <h3>Fomat - Text</h3>
 <pre><code>
@@ -140,6 +150,10 @@ export class AppComponent {
   isReadOnly = false;
   placeholder = 'placeholder';
   form: FormGroup;
+  hide = false;
+  dangerousModel = '';
+  dangerousModel2 = '';
+  dangerousHtml=`<p><img src="http://google.com/" onerror="alert('Sanatizing not working :(')">Incorrect image src should not open alert</p>`;
   modules = {};
   textFormat = 'Hello World!';
   objectFormat = [
