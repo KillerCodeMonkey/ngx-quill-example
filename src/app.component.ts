@@ -147,7 +147,7 @@ Quill.register(Font, true);
 })
 export class AppComponent {
   title = '<ul><li>I am example content</li><li><u>And this, too</u></li></ul>';
-  isReadOnly = false;
+  isReadOnly = true;
   placeholder = 'placeholder';
   form: FormGroup;
   hide = false;
