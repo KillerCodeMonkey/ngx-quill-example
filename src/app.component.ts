@@ -51,12 +51,13 @@ Quill.register(Font, true);
 <h3>Reactive Forms and patch value</h3>
 <button type="button" (click)="hide=!(!!hide)">hide / show</button>
 <button type="button" (click)="form.enabled ? form.disable() : form.enable()">disable / enable</button>
+<button type="button" (click)="backgroundColor = backgroundColor ? '' : 'grey'">toggle backgroundColor</button>
 <form [formGroup]="form" >
   {{ form.get('editor').value }}
   <button type="button" (click)="patchValue()">patchValue</button>
   <button type="button" (click)="setControl()">setControl</button>
 
-  <quill-editor #editor [style.display]="hide ? 'none' : 'block'" [style]="{ backgroundColor: 'gray'}" [formControl]="form.controls['editor']"></quill-editor>
+  <quill-editor #editor [style.display]="hide ? 'none' : 'block'" [style]="{ backgroundColor: backgroundColor }" [formControl]="form.controls['editor']"></quill-editor>
 </form>
 
 <h3>Formula & image resize editor & Keybinding on 'b' and 'shift + b'</h3>
@@ -149,6 +150,7 @@ export class AppComponent {
   title = '<ul><li>I am example content</li><li><u>And this, too</u></li></ul>';
   isReadOnly = true;
   placeholder = 'placeholder';
+  backgroundColor = '';
   form: FormGroup;
   hide = false;
   dangerousModel = '';
