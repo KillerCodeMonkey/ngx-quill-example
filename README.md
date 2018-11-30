@@ -1,6 +1,8 @@
 # ngx-quill-example
 The demo app for the usage of the [ngx-quill](https://github.com/KillerCodeMonkey/ngx-quill) module.
 
+[Live Demo](https://killercodemonkey.github.io/ngx-quill-example/)
+
 ## Donate/Support
 
 If you like my work, feel free to support it. Donations to the project are always welcomed :)
