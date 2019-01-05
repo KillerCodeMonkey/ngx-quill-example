@@ -7,6 +7,8 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { QuillEditorComponent } from 'ngx-quill';
 
 import Quill from 'quill';
+import 'quill-emoji/dist/quill-emoji.js';
+import 'quill-emoji/dist/quill-emoji.css';
 
 // add image resize module
 import ImageResize from 'quill-image-resize-module';
@@ -62,6 +64,9 @@ Quill.register(Font, true);
 
 <h3>Formula & image resize editor & Keybinding on 'b' and 'shift + b', CodeBlock + Syntax Highlighting</h3>
 <quill-editor #editor [modules]="modules" (onEditorCreated)="addBindingCreated($event)"></quill-editor>
+
+<h3>Emoji</h3>
+<quill-editor [modules]="{ toolbar: { container: [ 'emoji' ], handlers: { emoji: emptyHandler } }, 'emoji-toolbar': true, 'emoji-textarea': true, 'emoji-shortname': true }" (onEditorCreated)="addBindingCreated($event)"></quill-editor>
 
 <h3>Bubble editor <button type="button" (click)="placeholder=placeholder + '!'">Change placeholder</button></h3>
 <quill-editor theme="bubble" [placeholder]="placeholder"></quill-editor>
@@ -233,6 +238,8 @@ export class AppComponent {
       console.log('KEYBINDING SHIFT + B', range, context);
     });
   }
+
+  emptyHandler() {}
 
   setControl() {
     this.form.setControl('editor', new FormControl('test - new Control'))
