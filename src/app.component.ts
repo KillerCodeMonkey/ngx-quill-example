@@ -60,7 +60,7 @@ Quill.register(Font, true);
   <quill-editor #editor [style.display]="hide ? 'none' : 'block'" [style]="{ backgroundColor: backgroundColor }" [formControl]="form.controls['editor']"></quill-editor>
 </form>
 
-<h3>Formula & image resize editor & Keybinding on 'b' and 'shift + b'</h3>
+<h3>Formula & image resize editor & Keybinding on 'b' and 'shift + b', CodeBlock + Syntax Highlighting</h3>
 <quill-editor #editor [modules]="modules" (onEditorCreated)="addBindingCreated($event)"></quill-editor>
 
 <h3>Bubble editor <button type="button" (click)="placeholder=placeholder + '!'">Change placeholder</button></h3>
@@ -176,7 +176,8 @@ export class AppComponent {
 
     this.modules = {
       formula: true,
-      toolbar: [['formula'], ['image']],
+      syntax: true,
+      toolbar: [['formula'], ['image'], ['code-block']],
       imageResize: {},
       mention: {
         allowedChars: /^[A-Za-z\sÅÄÖåäö]*$/,
