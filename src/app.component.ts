@@ -76,8 +76,8 @@ Quill.register(Font, true);
 {{isReadOnly}}
 {{title}}
 <quill-editor [(ngModel)]="title" [maxLength]="5" [minLength]="3" [required]="true" [readOnly]="isReadOnly" [modules]="{toolbar: false}" (onContentChanged)="logChange($event);" (onSelectionChanged)="logSelection($event);"></quill-editor>
-<h3>Custom Toolbar with toolbar title-attributes + Word counter</h3>
-<quill-editor [modules]="{ counter: { container: '#counter', unit: 'word' } }">
+<h3>Custom Toolbar (position: bottom) with toolbar title-attributes + Word counter</h3>
+<quill-editor customToolbarPosition="bottom" [modules]="{ counter: { container: '#counter', unit: 'word' } }">
   <div quill-editor-toolbar>
     <span class="ql-formats">
       <select class="ql-font">
