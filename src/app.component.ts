@@ -40,6 +40,9 @@ Quill.register(Font, true);
 <h3>Default editor</h3>
 <quill-editor [style]="{height: '200px'}" (onEditorCreated)="setFocus($event)"></quill-editor>
 
+<h3>Activate rtl-direction</h3>
+<quill-editor (onEditorCreated)="activateRTL($event)"></quill-editor>
+
 <h3>Sanitize html</h3>
 <button (click)="dangerousModel = dangerousHtml">Set dangeours HTML</button>
 <pre><code>{{ dangerousHtml }}</code></pre>
@@ -247,6 +250,11 @@ export class AppComponent {
 
   setFocus($event) {
     $event.focus();
+  }
+
+  activateRTL(editor) {
+    editor.format('align', 'right')
+    editor.format('direction', 'rtl')
   }
 
   patchValue() {
