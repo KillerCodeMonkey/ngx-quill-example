@@ -14,7 +14,8 @@ import { BubbleEditorComponent } from './bubble-editor/bubble-editor.component';
 import { NoToolbarComponent } from './no-toolbar/no-toolbar.component';
 import { CustomToolbarComponent } from './custom-toolbar/custom-toolbar.component';
 import { FormatObjectComponent } from './format-object/format-object.component';
-import { FormatTextComponent } from './format-text/format-text.component'
+import { FormatTextComponent } from './format-text/format-text.component';
+import { NoSanitizeHtmlComponent } from './no-sanitize-html/no-sanitize-html.component'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FormatTextComponent } from './format-text/format-text.component'
     NoToolbarComponent,
     CustomToolbarComponent,
     FormatObjectComponent,
-    FormatTextComponent
+    FormatTextComponent,
+    NoSanitizeHtmlComponent
   ],
   imports: [
     BrowserModule,
