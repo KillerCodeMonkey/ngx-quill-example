@@ -1,0 +1,14 @@
+<h1>Editor without toolbar + required and ngModule</h1>
+<button (click)="toggleReadOnly()">Toggle ReadOnly</button>
+{{isReadOnly}}
+{{title}}
+<quill-editor 
+  [(ngModel)]="title" 
+  [maxLength]="5" 
+  [minLength]="3" 
+  [required]="true" 
+  [readOnly]="isReadOnly"
+  [modules]="{toolbar: false}" 
+  (onContentChanged)="logChange($event);" 
+  (onSelectionChanged)="logSelection($event);">
+</quill-editor>

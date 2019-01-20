@@ -1,0 +1,26 @@
+<h1>Reactive Forms and patch value</h1>
+
+<button type="button" (click)="hide=!(!!hide)">
+  hide / show
+</button>
+
+<button type="button" (click)="form.enabled ? form.disable() : form.enable()">
+    disable / enable
+</button>
+
+<button type="button" (click)="backgroundColor = backgroundColor ? '' : 'grey'">toggle
+  backgroundColor
+</button>
+
+<form [formGroup]="form">
+  {{ form.get('editor').value }}
+  <button type="button" (click)="patchValue()">patchValue</button>
+  <button type="button" (click)="setControl()">setControl</button>
+
+  <quill-editor 
+    #editor [style.display]="hide ? 'none' : 'block'" 
+    [style]="{ backgroundColor:backgroundColor }"
+    [formControl]="form.controls['editor']">
+  </quill-editor> 
+
+</form>
