@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoToolbarComponent implements OnInit {
   isReadOnly = true;
+  title = "To far shores tossed."
   constructor() { }
 
   ngOnInit() {

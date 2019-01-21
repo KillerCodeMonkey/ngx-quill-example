@@ -15,7 +15,8 @@ import { NoToolbarComponent } from './no-toolbar/no-toolbar.component';
 import { CustomToolbarComponent } from './custom-toolbar/custom-toolbar.component';
 import { FormatObjectComponent } from './format-object/format-object.component';
 import { FormatTextComponent } from './format-text/format-text.component';
-import { NoSanitizeHtmlComponent } from './no-sanitize-html/no-sanitize-html.component'
+import { NoSanitizeHtmlComponent } from './no-sanitize-html/no-sanitize-html.component';
+import { FormatJsonComponent } from './format-json/format-json.component'
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NoSanitizeHtmlComponent } from './no-sanitize-html/no-sanitize-html.com
     CustomToolbarComponent,
     FormatObjectComponent,
     FormatTextComponent,
-    NoSanitizeHtmlComponent
+    NoSanitizeHtmlComponent,
+    FormatJsonComponent
   ],
   imports: [
     BrowserModule,
