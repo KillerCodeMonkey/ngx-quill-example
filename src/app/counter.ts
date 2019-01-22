@@ -1,4 +1,4 @@
-import * as Quill from 'quill'
+import 'quill'
 
 export interface Config {
   container: string
@@ -6,8 +6,8 @@ export interface Config {
 }
 
 export interface QuillInstance {
-  on: Function
-  getText: Function
+  on: any
+  getText: any
 }
 
 export default class Counter {
@@ -21,7 +21,7 @@ export default class Counter {
     const container = document.querySelector(this.options.container)
 
     this.quill.on('text-change', () => {
-      var length = this.calculate()
+      const length = this.calculate()
 
       container.innerHTML = length + ' ' + this.options.unit + 's'
     })

@@ -1,15 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'app-bubble-editor',
-  templateUrl: './bubble-editor.component.html',
-  styleUrls: ['./bubble-editor.component.css']
+  templateUrl: './bubble-editor.component.html'
 })
-export class BubbleEditorComponent implements OnInit {
-  placeholder = 'placeholder';
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class BubbleEditorComponent {
+  placeholder = 'placeholder'
 }

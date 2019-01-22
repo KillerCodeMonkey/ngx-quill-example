@@ -1,10 +1,11 @@
 {
-  "name": "quill-play",
-  "version": "0.0.0",
+  "name": "ngx-quill-example",
+  "version": "4.5.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:deploy": "ng build --prod --base-href ngx-quill-example && && gh-pages -d ./dist",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -32,14 +33,15 @@
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.11.0",
+    "@angular-devkit/build-angular": "^0.12.2",
     "@angular/cli": "~7.1.0",
     "@angular/compiler-cli": "~7.1.0",
     "@angular/language-service": "~7.1.0",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
+    "gh-pages": "^2.0.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.1.1",
@@ -50,6 +52,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
+    "tslint-eslint-rules": "^5.4.0",
     "typescript": "~3.1.6"
   }
 }

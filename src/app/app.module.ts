@@ -1,24 +1,27 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { BrowserModule } from '@angular/platform-browser'
 
-import { AppComponent } from './app.component';
-import { QuillModule } from 'ngx-quill';
-import { DefaultComponent } from './default/default.component';
-import { ActivateRtlComponent } from './activate-rtl/activate-rtl.component';
-import { SanitizeHtmlComponent } from './sanitize-html/sanitize-html.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FormulaComponent } from './formula/formula.component';
-import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
-import { EmojiComponent } from './emoji/emoji.component';
-import { BubbleEditorComponent } from './bubble-editor/bubble-editor.component';
-import { NoToolbarComponent } from './no-toolbar/no-toolbar.component';
-import { CustomToolbarComponent } from './custom-toolbar/custom-toolbar.component';
-import { FormatObjectComponent } from './format-object/format-object.component';
-import { FormatTextComponent } from './format-text/format-text.component';
-import { NoSanitizeHtmlComponent } from './no-sanitize-html/no-sanitize-html.component';
+import { QuillModule } from 'ngx-quill'
+
+import { AppComponent } from './app.component'
+
+import { ActivateRtlComponent } from './activate-rtl/activate-rtl.component'
+import { BubbleEditorComponent } from './bubble-editor/bubble-editor.component'
+import { CustomToolbarComponent } from './custom-toolbar/custom-toolbar.component'
+import { DefaultComponent } from './default/default.component'
+import { EmojiComponent } from './emoji/emoji.component'
 import { FormatJsonComponent } from './format-json/format-json.component'
+import { FormatObjectComponent } from './format-object/format-object.component'
+import { FormatTextComponent } from './format-text/format-text.component'
+import { FormulaComponent } from './formula/formula.component'
+import { NoSanitizeHtmlComponent } from './no-sanitize-html/no-sanitize-html.component'
+import { NoToolbarComponent } from './no-toolbar/no-toolbar.component'
+import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component'
+import { SanitizeHtmlComponent } from './sanitize-html/sanitize-html.component'
 
 @NgModule({
+  bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     DefaultComponent,
@@ -41,7 +44,6 @@ import { FormatJsonComponent } from './format-json/format-json.component'
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: []
 })
 export class AppModule { }

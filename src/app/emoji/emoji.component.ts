@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import 'quill-emoji/dist/quill-emoji.js';
-import 'quill-emoji/dist/quill-emoji.css';
+import { Component } from '@angular/core'
+
+import 'quill-emoji/dist/quill-emoji.js'
+
+import 'quill-emoji/dist/quill-emoji.css'
 
 @Component({
   selector: 'app-emoji',
-  templateUrl: './emoji.component.html',
-  styleUrls: ['./emoji.component.css']
+  templateUrl: './emoji.component.html'
 })
-export class EmojiComponent implements OnInit {
-  modules = {};
-  constructor() { 
+export class EmojiComponent {
+  modules = {}
+  constructor() {
     this.modules = {
-      toolbar: [['formula'], ['image'], ['code-block']],
+      toolbar: [['formula'], ['image'], ['code-block']]
     }
   }
 
@@ -19,18 +20,16 @@ export class EmojiComponent implements OnInit {
     quill.keyboard.addBinding({
       key: 'b'
     }, (range, context) => {
-      console.log('KEYBINDING B', range, context);
-    });
+      // tslint:disable-next-line:no-console
+      console.log('KEYBINDING B', range, context)
+    })
 
     quill.keyboard.addBinding({
       key: 'B',
       shiftKey: true
     }, (range, context) => {
-      console.log('KEYBINDING SHIFT + B', range, context);
-    });
+      // tslint:disable-next-line:no-console
+      console.log('KEYBINDING SHIFT + B', range, context)
+    })
   }
-
-  ngOnInit() {
-  }
-
 }

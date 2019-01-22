@@ -1,15 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'app-format-text',
-  templateUrl: './format-text.component.html',
-  styleUrls: ['./format-text.component.css']
+  templateUrl: './format-text.component.html'
 })
-export class FormatTextComponent implements OnInit {
-  textFormat = 'Hello World!';
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class FormatTextComponent {
+  textFormat = 'Hello World!'
 }

@@ -1,20 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'app-default',
-  templateUrl: './default.component.html',
-  styleUrls: ['./default.component.css']
+  templateUrl: './default.component.html'
 })
-export class DefaultComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class DefaultComponent {
   setFocus(event) {
-    console.log(event);
-    event.focus();
+    console.log(event)
+    event.focus()
   }
-
 }

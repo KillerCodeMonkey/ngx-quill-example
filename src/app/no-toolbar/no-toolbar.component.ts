@@ -1,28 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'app-no-toolbar',
-  templateUrl: './no-toolbar.component.html',
-  styleUrls: ['./no-toolbar.component.css']
+  templateUrl: './no-toolbar.component.html'
 })
-export class NoToolbarComponent implements OnInit {
-  isReadOnly = true;
-  title = "To far shores tossed."
-  constructor() { }
-
-  ngOnInit() {
-  }
+export class NoToolbarComponent {
+  isReadOnly = true
+  title = 'To far shores tossed.'
 
   logChange($event: any) {
-    console.log($event);
+    // tslint:disable-next-line:no-console
+    console.log($event)
   }
 
   logSelection($event: any) {
-    console.log($event);
+    // tslint:disable-next-line:no-console
+    console.log($event)
   }
 
   toggleReadOnly() {
-    this.isReadOnly = !this.isReadOnly;
+    this.isReadOnly = !this.isReadOnly
   }
-
 }
