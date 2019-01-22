@@ -6,6 +6,7 @@ import { Component } from '@angular/core'
 })
 export class DefaultComponent {
   setFocus(event) {
+    // tslint:disable-next-line:no-console
     console.log(event)
     event.focus()
   }
