@@ -15,6 +15,7 @@ import { FormatJsonComponent } from './format-json/format-json.component'
 import { FormatObjectComponent } from './format-object/format-object.component'
 import { FormatTextComponent } from './format-text/format-text.component'
 import { FormulaComponent } from './formula/formula.component'
+import { MentionComponent } from './mention/mention.component'
 import { NoSanitizeHtmlComponent } from './no-sanitize-html/no-sanitize-html.component'
 import { NoToolbarComponent } from './no-toolbar/no-toolbar.component'
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component'
@@ -31,6 +32,7 @@ import { SanitizeHtmlComponent } from './sanitize-html/sanitize-html.component'
     ReactiveFormsComponent,
     EmojiComponent,
     BubbleEditorComponent,
+    MentionComponent,
     NoToolbarComponent,
     CustomToolbarComponent,
     FormatObjectComponent,

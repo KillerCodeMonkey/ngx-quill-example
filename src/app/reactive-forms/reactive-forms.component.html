@@ -1,4 +1,4 @@
-<h1>Reactive Forms and patch value</h1>
+<h3>Reactive Forms and patch value</h3>
 
 <button type="button" (click)="hide=!(!!hide)">
   hide / show
@@ -17,10 +17,10 @@
   <button type="button" (click)="patchValue()">patchValue</button>
   <button type="button" (click)="setControl()">setControl</button>
 
-  <quill-editor 
-    #editor [style.display]="hide ? 'none' : 'block'" 
+  <quill-editor
+    #editor [style.display]="hide ? 'none' : 'block'"
     [style]="{ backgroundColor:backgroundColor }"
     [formControl]="form.controls['editor']">
-  </quill-editor> 
+  </quill-editor>
 
 </form>

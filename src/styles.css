@@ -1,32 +1,43 @@
 @import "~quill/dist/quill.snow.css";
+@import "~quill/dist/quill.bubble.css";
+
+@import "~quill-emoji/dist/quill-emoji.css";
+@import "~quill-mention/dist/quill.mention.min.css";
 
 quill-editor {
   display: block;
 }
+
 .ng-invalid {
   border: 1px dashed red;
 }
 
 /* Set default font-family */
+
 [quill-editor-element] {
   font-family: "Roboto";
 }
 
 /* Set dropdown font-families */
+
 [quill-editor-toolbar] .ql-font span[data-label="Aref Ruqaa"]::before {
   font-family: "Aref Ruqaa";
 }
+
 [quill-editor-toolbar] .ql-font span[data-label="Mirza"]::before {
   font-family: "Mirza";
 }
+
 [quill-editor-toolbar] .ql-font span[data-label="Roboto"]::before {
   font-family: "Roboto";
 }
 
 /* Set content font-families */
+
 .ql-font-mirza {
   font-family: "Mirza";
 }
+
 .ql-font-aref {
   font-family: "Aref Ruqaa";
 }

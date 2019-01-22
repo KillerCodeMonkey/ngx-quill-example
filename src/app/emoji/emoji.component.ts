@@ -2,11 +2,9 @@ import { Component } from '@angular/core'
 
 import 'quill-emoji/dist/quill-emoji.js'
 
-import 'quill-emoji/dist/quill-emoji.css'
-
 @Component({
   selector: 'app-emoji',
-  templateUrl: './emoji.component.html'
+  templateUrl: 'emoji.component.html'
 })
 export class EmojiComponent {
   modules = {}
@@ -14,6 +12,11 @@ export class EmojiComponent {
     this.modules = {
       toolbar: [['formula'], ['image'], ['code-block']]
     }
+  }
+
+  emptyHandler() {
+    // tslint:disable-next-line:no-console
+    console.log('does nothing')
   }
 
   addBindingCreated(quill) {

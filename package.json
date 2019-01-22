@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:deploy": "ng build --prod --base-href ngx-quill-example && && gh-pages -d ./dist",
+    "build:deploy": "ng build --prod --base-href ngx-quill-example && gh-pages -d ./dist",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

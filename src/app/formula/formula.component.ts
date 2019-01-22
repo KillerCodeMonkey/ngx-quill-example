@@ -1,5 +1,10 @@
 import { Component } from '@angular/core'
 
+import Quill from 'quill'
+
+import ImageResize from 'quill-image-resize-module'
+Quill.register('modules/imageResize', ImageResize)
+
 @Component({
   selector: 'app-formula',
   templateUrl: './formula.component.html'
@@ -10,6 +15,7 @@ export class FormulaComponent {
   constructor() {
     this.modules = {
       formula: true,
+      imageResize: {},
       syntax: true,
       toolbar: [['formula'], ['image'], ['code-block']]
     }

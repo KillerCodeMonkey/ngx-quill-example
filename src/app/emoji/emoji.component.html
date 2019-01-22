@@ -1,3 +1,4 @@
-<h1>Emoji</h1>
+<h3>Emoji</h3>
+Do not forget to add quill-emoji to your styles ;)
 <quill-editor [modules]="{ toolbar: { container: [ 'emoji' ], handlers: { emoji: emptyHandler } }, 'emoji-toolbar': true, 'emoji-textarea': true, 'emoji-shortname': true }" (onEditorCreated)="addBindingCreated($event)">
 </quill-editor>
