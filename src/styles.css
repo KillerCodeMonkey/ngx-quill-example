@@ -41,3 +41,10 @@ quill-editor {
 .ql-font-aref {
   font-family: "Aref Ruqaa";
 }
+
+pre {
+  background-color: #fcfcfc;
+  padding: 5px;
+  border: 1px solid #b2b2b2;
+  color: #363030;
+}
