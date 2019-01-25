@@ -6,6 +6,7 @@ import { Component } from '@angular/core'
 })
 export class NoToolbarComponent {
   isReadOnly = true
+  isRequired = true
   title = 'To far shores tossed.'
 
   logChange($event: any) {
@@ -20,5 +21,9 @@ export class NoToolbarComponent {
 
   toggleReadOnly() {
     this.isReadOnly = !this.isReadOnly
+  }
+
+  toggleRequired() {
+    this.isRequired = !this.isRequired
   }
 }

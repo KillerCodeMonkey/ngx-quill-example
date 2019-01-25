@@ -1,12 +1,13 @@
-<h3>Editor without toolbar + required and ngModule</h3>
+<h3>Editor without toolbar + required and ngModule + maxlength 10 chars</h3>
 <button (click)="toggleReadOnly()">Toggle ReadOnly</button>
-{{isReadOnly}}
+<button (click)="toggleRequired()">Toggle Required</button>
+Readonly: {{isReadOnly}}
+Required: {{isRequired}}
 {{title}}
 <quill-editor
   [(ngModel)]="title"
-  [maxLength]="5"
-  [minLength]="3"
-  [required]="true"
+  [maxLength]="10"
+  [required]="isRequired"
   [readOnly]="isReadOnly"
   [modules]="{toolbar: false}"
   (onContentChanged)="logChange($event);"
