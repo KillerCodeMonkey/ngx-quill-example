@@ -6,8 +6,8 @@ import { FormBuilder, FormGroup } from '@angular/forms'
   templateUrl: './no-toolbar.component.html'
 })
 export class NoToolbarComponent {
-  isReadOnly = true
-  isRequired = true
+  isReadOnly = false
+  isRequired = false
   form: FormGroup
 
   constructor(fb: FormBuilder) {
