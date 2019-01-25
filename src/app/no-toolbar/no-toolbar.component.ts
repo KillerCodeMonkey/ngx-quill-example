@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { FormBuilder, FormGroup } from '@angular/forms'
 
 @Component({
   selector: 'app-no-toolbar',
@@ -7,7 +8,13 @@ import { Component } from '@angular/core'
 export class NoToolbarComponent {
   isReadOnly = true
   isRequired = true
-  title = 'To far shores tossed.'
+  form: FormGroup
+
+  constructor(fb: FormBuilder) {
+    this.form = fb.group({
+      title: ['']
+    })
+  }
 
   logChange($event: any) {
     // tslint:disable-next-line:no-console

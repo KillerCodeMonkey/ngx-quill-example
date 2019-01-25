@@ -1,11 +1,11 @@
-<h3>Editor without toolbar + required and ngModule + maxlength 10 chars</h3>
+<h3>Editor without toolbar + required and formControl + maxlength 10 chars</h3>
 <button (click)="toggleReadOnly()">Toggle ReadOnly</button>
 <button (click)="toggleRequired()">Toggle Required</button>
 Readonly: {{isReadOnly}}
 Required: {{isRequired}}
-{{title}}
+{{ form.get('title').value }}
 <quill-editor
-  [(ngModel)]="title"
+  [formControl]="form.get('title')"
   [maxLength]="10"
   [required]="isRequired"
   [readOnly]="isReadOnly"
