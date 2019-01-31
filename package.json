@@ -1,9 +1,9 @@
 {
   "name": "ngx-quill-example",
-  "version": "4.5.3",
+  "version": "4.5.4",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --prod",
+    "start": "ng serve",
     "build": "ng build",
     "build:deploy": "ng build --prod --base-href ngx-quill-example && gh-pages -d ./dist",
     "test": "ng test",
