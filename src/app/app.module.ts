@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser'
 
-import { defaultModules, QuillModule } from 'ngx-quill'
+import { QuillModule } from 'ngx-quill'
 
 import { AppComponent } from './app.component'
 
