@@ -1,4 +1,5 @@
 <h3>Emoji</h3>
 Do not forget to add quill-emoji css to your styles ;)
-<quill-editor [modules]="{ toolbar: { container: [ 'emoji' ], handlers: { emoji: emptyHandler } }, 'emoji-toolbar': true, 'emoji-textarea': true, 'emoji-shortname': true }" (onEditorCreated)="addBindingCreated($event)">
+<pre><code>{{ content }}</code></pre>
+<quill-editor [(ngModel)]="content" trackChanges="all" [modules]="modules" (onEditorCreated)="addBindingCreated($event)">
 </quill-editor>

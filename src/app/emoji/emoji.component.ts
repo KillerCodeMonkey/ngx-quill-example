@@ -8,15 +8,14 @@ import 'quill-emoji/dist/quill-emoji.js'
 })
 export class EmojiComponent {
   modules = {}
+  content = ''
   constructor() {
     this.modules = {
-      toolbar: [['formula'], ['image'], ['code-block']]
+      'emoji-shortname': true,
+      'emoji-textarea': true,
+      'emoji-toolbar': true,
+      'toolbar': { container: [ 'emoji' ] }
     }
-  }
-
-  emptyHandler() {
-    // tslint:disable-next-line:no-console
-    console.log('does nothing')
   }
 
   addBindingCreated(quill) {
