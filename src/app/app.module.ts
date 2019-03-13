@@ -11,6 +11,7 @@ import { BubbleEditorComponent } from './bubble-editor/bubble-editor.component'
 import { CustomToolbarComponent } from './custom-toolbar/custom-toolbar.component'
 import { DefaultComponent } from './default/default.component'
 import { EmojiComponent } from './emoji/emoji.component'
+import { FormatHtmlComponent } from './format-html/format-html.component'
 import { FormatJsonComponent } from './format-json/format-json.component'
 import { FormatObjectComponent } from './format-object/format-object.component'
 import { FormatTextComponent } from './format-text/format-text.component'
@@ -38,7 +39,8 @@ import { SanitizeHtmlComponent } from './sanitize-html/sanitize-html.component'
     FormatObjectComponent,
     FormatTextComponent,
     NoSanitizeHtmlComponent,
-    FormatJsonComponent
+    FormatJsonComponent,
+    FormatHtmlComponent
   ],
   imports: [
     BrowserModule,
