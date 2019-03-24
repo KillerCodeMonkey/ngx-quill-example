@@ -6,7 +6,7 @@ Quill.register('modules/counter', Counter)
 
 const font = Quill.import('formats/font')
 // We do not add Aref Ruqaa since it is the default
-font.whitelist = ['mirza', 'roboto', 'aref']
+font.whitelist = ['mirza', 'roboto', 'aref', 'serif', 'sansserif', 'monospace']
 Quill.register(font, true)
 
 @Component({
