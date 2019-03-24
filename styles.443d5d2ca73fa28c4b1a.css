@@ -1,4 +1,4 @@
-quill-editor{display:block}.ng-invalid{border:1px dashed red}[quill-editor-element]{font-family:Roboto}[quill-editor-toolbar] .ql-font span[data-label="Aref Ruqaa"]::before{font-family:"Aref Ruqaa"}[quill-editor-toolbar] .ql-font span[data-label=Mirza]::before{font-family:Mirza}[quill-editor-toolbar] .ql-font span[data-label=Roboto]::before{font-family:Roboto}.ql-font-mirza{font-family:Mirza}.ql-font-aref{font-family:"Aref Ruqaa"}pre{background-color:#fcfcfc;padding:5px;border:1px solid #b2b2b2;color:#363030}/*!
+quill-editor{display:block}.ng-invalid{border:1px dashed red}[quill-editor-toolbar] .ql-font span[data-label="Aref Ruqaa"]::before{font-family:"Aref Ruqaa"}[quill-editor-toolbar] .ql-font span[data-label=Mirza]::before{font-family:Mirza}[quill-editor-toolbar] .ql-font span[data-label=Roboto]::before{font-family:Roboto}.ql-font-mirza{font-family:Mirza}.ql-font-aref{font-family:"Aref Ruqaa"}.ql-font-roboto{font-family:Roboto}pre{background-color:#fcfcfc;padding:5px;border:1px solid #b2b2b2;color:#363030}/*!
  * Quill Editor v1.3.6
  * https://quilljs.com/
  * Copyright (c) 2014, Jason Chen
