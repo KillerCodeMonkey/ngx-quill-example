@@ -14,4 +14,11 @@ Quill.register(font, true)
   selector: 'app-custom-toolbar',
   templateUrl: './custom-toolbar.component.html'
 })
-export class CustomToolbarComponent {}
+export class CustomToolbarComponent {
+  editorModel = [{
+    attributes: {
+      font: 'roboto'
+    },
+    insert: 'test'
+  }]
+}

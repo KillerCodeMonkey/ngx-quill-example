@@ -1,13 +1,15 @@
 <h3>Custom Toolbar (position: bottom) with toolbar title-attributes + Word counter</h3>
 <quill-editor
   customToolbarPosition="bottom"
+  [(ngModel)]="editorModel"
+  format="object"
   [modules]="{ counter: { container: '#counter', unit: 'word' } }">
   <div quill-editor-toolbar>
     <span class="ql-formats">
       <select class="ql-font">
         <option value="aref">Aref Ruqaa</option>
         <option value="mirza">Mirza</option>
-        <option selected>Roboto</option>
+        <option selected value="roboto">Roboto</option>
       </select>
       <select class="ql-align" [title]="'Aligment'">
         <option selected></option>

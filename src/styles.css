@@ -6,12 +6,6 @@ quill-editor {
   border: 1px dashed red;
 }
 
-/* Set default font-family */
-
-[quill-editor-element] {
-  font-family: "Roboto";
-}
-
 /* Set dropdown font-families */
 
 [quill-editor-toolbar] .ql-font span[data-label="Aref Ruqaa"]::before {
@@ -34,6 +28,10 @@ quill-editor {
 
 .ql-font-aref {
   font-family: "Aref Ruqaa";
+}
+
+.ql-font-roboto {
+  font-family: "Roboto";
 }
 
 pre {
