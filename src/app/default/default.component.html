@@ -1,2 +1,2 @@
-<h3>Default editor with height of 200px</h3>
-<quill-editor [style]="{height: '200px'}" (onEditorCreated)="setFocus($event)"></quill-editor>
+<h3>Default editor with height of 200px - focused: {{ focused }}, blured: {{ blured }}</h3>
+<quill-editor [style]="{height: '200px'}" (onFocus)="focus($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)"></quill-editor>

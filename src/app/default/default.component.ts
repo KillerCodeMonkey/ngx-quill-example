@@ -5,9 +5,25 @@ import { Component } from '@angular/core'
   templateUrl: './default.component.html'
 })
 export class DefaultComponent {
-  setFocus(event) {
+  blured = false
+  focused = false
+
+  created(event) {
     // tslint:disable-next-line:no-console
     console.log(event)
-    event.focus()
+  }
+
+  focus($event) {
+    // tslint:disable-next-line:no-console
+    console.log('focus', $event)
+    this.focused = true
+    this.blured = false
+  }
+
+  blur($event) {
+    // tslint:disable-next-line:no-console
+    console.log('blur', $event)
+    this.focused = false
+    this.blured = true
   }
 }
