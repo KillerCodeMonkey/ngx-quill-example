@@ -2,6 +2,11 @@ quill-editor {
   display: block;
 }
 
+.ql-editor:focus {
+  border: 1px solid #80bdff !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+
 .ng-invalid {
   border: 1px dashed red;
 }
