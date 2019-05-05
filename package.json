@@ -1,6 +1,6 @@
 {
   "name": "ngx-quill-example",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -22,7 +22,7 @@
     "@angular/router": "^7.2.14",
     "core-js": "^2.5.0",
     "katex": "^0.10.1",
-    "ngx-quill": "^5.0.0",
+    "ngx-quill": "^5.1.0",
     "quill": "^1.3.6",
     "quill-emoji": "^0.1.7",
     "quill-image-resize": "^3.0.9",
