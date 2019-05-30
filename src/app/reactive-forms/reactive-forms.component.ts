@@ -17,7 +17,7 @@ export class ReactiveFormsComponent implements OnInit {
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({
-      editor: ['test']
+      editor: ['<ol><li>test</li><li>123</li></ol>']
     })
   }
 
