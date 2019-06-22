@@ -1,4 +1,4 @@
-<h3>Sanitize html</h3>
+<h3 id="sanitize">Sanitize html</h3>
 <button (click)="dangerousModel = dangerousHtml">Set dangeours HTML</button>
 <pre><code>{{ dangerousHtml }}</code></pre>
 <quill-editor [(ngModel)]="dangerousModel" [sanitize]="true"></quill-editor>
