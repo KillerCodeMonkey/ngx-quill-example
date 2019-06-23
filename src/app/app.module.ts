@@ -22,6 +22,8 @@ import { NoToolbarComponent } from './no-toolbar/no-toolbar.component'
 import { PreserveWhitespaceComponent } from './preserve-whitespace/preserve-whitespace.component'
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component'
 import { SanitizeHtmlComponent } from './sanitize-html/sanitize-html.component'
+import { ViewHTMLComponent } from './view-html/view-html.component'
+import { ViewComponent } from './view/view.component'
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -42,7 +44,9 @@ import { SanitizeHtmlComponent } from './sanitize-html/sanitize-html.component'
     NoSanitizeHtmlComponent,
     FormatJsonComponent,
     FormatHtmlComponent,
-    PreserveWhitespaceComponent
+    PreserveWhitespaceComponent,
+    ViewComponent,
+    ViewHTMLComponent
   ],
   imports: [
     BrowserModule,
