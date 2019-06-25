@@ -1,12 +1,15 @@
 <h3 id="html">Format - HTML</h3>
 <pre>
   <code>
-    {{ htmlFormat }}
+    {{ form.get('html').value }}
   </code>
 </pre>
 
 Presentation in HTML
 <div class="ql-container ql-snow" style="border-width: 0;">
-  <div style="width: 100%" class="ql-editor" [innerHTML]="byPassHTML(htmlFormat)"></div>
+  <div style="width: 100%" class="ql-editor" [innerHTML]="byPassHTML(form.get('html').value)"></div>
 </div>
-<quill-editor format="html" [(ngModel)]="htmlFormat"></quill-editor>
+
+<form [formGroup]="form">
+  <quill-editor format="html" formControlName="html"></quill-editor>
+</form>
