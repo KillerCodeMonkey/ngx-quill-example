@@ -20,6 +20,7 @@ import { MentionComponent } from './mention/mention.component'
 import { NoSanitizeHtmlComponent } from './no-sanitize-html/no-sanitize-html.component'
 import { NoToolbarComponent } from './no-toolbar/no-toolbar.component'
 import { PreserveWhitespaceComponent } from './preserve-whitespace/preserve-whitespace.component'
+import { QuillApiEmbedComponent } from './quill-api-embed/quill-api-embed.component'
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component'
 import { SanitizeHtmlComponent } from './sanitize-html/sanitize-html.component'
 import { ViewHTMLComponent } from './view-html/view-html.component'
@@ -45,6 +46,7 @@ import { ViewComponent } from './view/view.component'
     FormatJsonComponent,
     FormatHtmlComponent,
     PreserveWhitespaceComponent,
+    QuillApiEmbedComponent,
     ViewComponent,
     ViewHTMLComponent
   ],
