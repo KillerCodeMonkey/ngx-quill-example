@@ -3,6 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser'
 
 import { QuillModule } from 'ngx-quill'
+import { ChildModule } from './child-module/child-module'
 
 import { AppComponent } from './app.component'
 
@@ -53,6 +54,7 @@ import { ViewComponent } from './view/view.component'
   imports: [
     BrowserModule,
     QuillModule.forRoot(),
+    ChildModule,
     FormsModule,
     ReactiveFormsModule
   ],
