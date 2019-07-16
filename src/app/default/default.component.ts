@@ -10,7 +10,12 @@ export class DefaultComponent {
 
   created(event) {
     // tslint:disable-next-line:no-console
-    console.log(event)
+    console.log('editor-created', event)
+  }
+
+  changedEditor(event) {
+    // tslint:disable-next-line:no-console
+    console.log('editor-change', event)
   }
 
   focus($event) {
