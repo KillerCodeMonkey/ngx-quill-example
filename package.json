@@ -41,7 +41,7 @@
     "@types/jasmine": "^3.4.2",
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "~12.7.11",
-    "@types/quill": "^1.3.10",
+    "@types/quill": "^2.0.3",
     "codelyzer": "~5.1.2",
     "gh-pages": "^2.1.1",
     "jasmine-core": "~3.5.0",
