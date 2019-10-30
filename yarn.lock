@@ -5193,10 +5193,10 @@ neo-async@^2.5.0, neo-async@^2.6.0, neo-async@^2.6.1:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
-ngx-quill@^7.3.8:
-  version "7.3.8"
-  resolved "https://registry.yarnpkg.com/ngx-quill/-/ngx-quill-7.3.8.tgz#0e2be63817807904bbca360231cdb788143e3923"
-  integrity sha512-Y/LPuyQRQkrh4S6ydkG1P+JYDyEtBE2aUFpFy1Sts15DIWfjsC0ee/Q1wjF1inUdscYRLSr+gbP9N+LufesjVQ==
+ngx-quill@^7.3.9:
+  version "7.3.9"
+  resolved "https://registry.yarnpkg.com/ngx-quill/-/ngx-quill-7.3.9.tgz#f284bfca50cdf3a7999bc694b823bb2f7a325c9d"
+  integrity sha512-v70jjBS69SQ12wVr2ObQxBPQLijL//qvoZU0dLWyOq08gvBnu33YnY0dDOuIlUostEmqrTNLnUNB+o4Hop7voA==
   dependencies:
     tslib "^1.9.0"
 
