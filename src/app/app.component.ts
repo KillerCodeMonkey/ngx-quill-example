@@ -1,6 +1,5 @@
 import { Component, Inject } from '@angular/core'
 
-import { QUILL_CONFIG_TOKEN, QuillConfig } from 'ngx-quill'
 import Quill from 'quill'
 
 const parchment = Quill.import('parchment')
