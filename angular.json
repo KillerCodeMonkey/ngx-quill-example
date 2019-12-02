@@ -29,9 +29,13 @@
               "./node_modules/quill/dist/quill.bubble.css",
               "./node_modules/quill/dist/quill.snow.css",
               "./node_modules/quill-emoji/dist/quill-emoji.css",
-              "./node_modules/quill-mention/dist/quill.mention.min.css"
+              "./node_modules/quill-mention/dist/quill.mention.min.css",
+              "./node_modules/katex/dist/katex.min.css"
             ],
-            "scripts": ["./node_modules/quill/dist/quill.min.js"]
+            "scripts": [
+              "./node_modules/katex/dist/katex.min.js",
+              "./node_modules/quill/dist/quill.min.js"
+            ]
           },
           "configurations": {
             "production": {

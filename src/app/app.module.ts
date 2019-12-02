@@ -2,6 +2,15 @@ import { NgModule } from '@angular/core'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser'
 
+// import hljs from 'highlight.js'
+// import bash from 'highlight.js/lib/languages/bash'
+// import javascript from 'highlight.js/lib/languages/javascript'
+// import ruby from 'highlight.js/lib/languages/ruby'
+
+// hljs.registerLanguage('javascript', javascript)
+// hljs.registerLanguage('ruby', ruby)
+// hljs.registerLanguage('bash', bash)
+
 import { QuillModule } from 'ngx-quill'
 import { ChildModule } from './child-module/child-module'
 
