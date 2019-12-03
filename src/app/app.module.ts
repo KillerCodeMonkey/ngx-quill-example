@@ -2,15 +2,6 @@ import { NgModule } from '@angular/core'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser'
 
-// import hljs from 'highlight.js'
-// import bash from 'highlight.js/lib/languages/bash'
-// import javascript from 'highlight.js/lib/languages/javascript'
-// import ruby from 'highlight.js/lib/languages/ruby'
-
-// hljs.registerLanguage('javascript', javascript)
-// hljs.registerLanguage('ruby', ruby)
-// hljs.registerLanguage('bash', bash)
-
 import { QuillModule } from 'ngx-quill'
 import { ChildModule } from './child-module/child-module'
 
@@ -27,6 +18,7 @@ import { FormatObjectComponent } from './format-object/format-object.component'
 import { FormatTextComponent } from './format-text/format-text.component'
 import { FormulaComponent } from './formula/formula.component'
 import { MentionComponent } from './mention/mention.component'
+import { ModelValidation } from './model-validation/model-validation.component'
 import { NoSanitizeHtmlComponent } from './no-sanitize-html/no-sanitize-html.component'
 import { NoToolbarComponent } from './no-toolbar/no-toolbar.component'
 import { PreserveWhitespaceComponent } from './preserve-whitespace/preserve-whitespace.component'
@@ -58,7 +50,8 @@ import { ViewComponent } from './view/view.component'
     PreserveWhitespaceComponent,
     QuillApiEmbedComponent,
     ViewComponent,
-    ViewHTMLComponent
+    ViewHTMLComponent,
+    ModelValidation
   ],
   imports: [
     BrowserModule,
