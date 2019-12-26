@@ -15,7 +15,7 @@ export class FormatHtmlComponent {
 
   ngOnInit() {
     setTimeout(() => {
-      this.form.get('html').patchValue('<ol><li><sup>test</sup></li></ol>')
+      this.form.get('html').patchValue('<ol><li><sup>test</sup></li></ol><div><a href="https://google.de" rel="noopener noreferrer" target="_blank">asdfasdf</a></div>')
     }, 4000)
   }
 
