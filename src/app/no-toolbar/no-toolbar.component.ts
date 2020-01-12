@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
+import { ContentChange, SelectionChange } from 'ngx-quill'
 
 @Component({
   selector: 'app-no-toolbar',
@@ -16,12 +17,12 @@ export class NoToolbarComponent {
     })
   }
 
-  logChange($event: any) {
+  logChange($event: ContentChange) {
     // tslint:disable-next-line:no-console
     console.log($event)
   }
 
-  logSelection($event: any) {
+  logSelection($event: SelectionChange) {
     // tslint:disable-next-line:no-console
     console.log($event)
   }

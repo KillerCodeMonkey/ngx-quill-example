@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { EditorChangeContent, EditorChangeSelection } from 'ngx-quill'
 
 @Component({
   selector: 'app-default',
@@ -13,7 +14,7 @@ export class DefaultComponent {
     console.log('editor-created', event)
   }
 
-  changedEditor(event) {
+  changedEditor(event: EditorChangeContent | EditorChangeSelection) {
     // tslint:disable-next-line:no-console
     console.log('editor-change', event)
   }
