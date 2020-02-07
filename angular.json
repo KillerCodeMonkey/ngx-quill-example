@@ -84,5 +84,8 @@
       }
     }
   },
-  "defaultProject": "ngx-quill-example"
+  "defaultProject": "ngx-quill-example",
+  "cli": {
+    "analytics": false
+  }
 }
