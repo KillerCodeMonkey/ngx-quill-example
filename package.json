@@ -34,7 +34,7 @@
     "@angular-devkit/build-angular": "^0.900.2",
     "@angular/cli": "^9.0.2",
     "@angular/compiler-cli": "^9.0.0",
-    "@angular/language-service": "^9.0.1",
+    "@angular/language-service": "^9.0.2",
     "@types/node": "~13.7.2",
     "@types/quill": "^1.3.10",
     "codelyzer": "~5.2.1",
