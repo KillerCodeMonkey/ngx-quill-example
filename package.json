@@ -27,11 +27,11 @@
     "quill-image-resize-module": "^3.0.0",
     "quill-mention": "^2.2.4",
     "rxjs": "~6.5.4",
-    "tslib": "^1.11.0",
+    "tslib": "^1.11.1",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.900.3",
+    "@angular-devkit/build-angular": "^0.900.4",
     "@angular/cli": "^9.0.4",
     "@angular/compiler-cli": "^9.0.0",
     "@angular/language-service": "^9.0.4",
