@@ -25,7 +25,7 @@
     "quill-emoji": "^0.1.7",
     "quill-image-resize": "^3.0.9",
     "quill-image-resize-module": "^3.0.0",
-    "quill-mention": "^2.2.4",
+    "quill-mention": "^2.2.5",
     "rxjs": "~6.5.4",
     "tslib": "^1.11.1",
     "zone.js": "~0.10.3"
