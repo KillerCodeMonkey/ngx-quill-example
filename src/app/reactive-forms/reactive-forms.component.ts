@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
-import { QuillEditorComponent } from 'ngx-quill'
+import { ContentChange, QuillEditorComponent } from 'ngx-quill'
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators'
 
 @Component({
@@ -40,7 +40,7 @@ export class ReactiveFormsComponent implements OnInit {
         debounceTime(400),
         distinctUntilChanged()
       )
-      .subscribe((data) => {
+      .subscribe((data: ContentChange) => {
         // tslint:disable-next-line:no-console
         console.log('view child + directly subscription', data)
       })
