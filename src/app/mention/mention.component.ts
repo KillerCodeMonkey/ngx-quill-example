@@ -1,5 +1,4 @@
 import { Component, ViewChild } from '@angular/core'
-import Quill from 'quill'
 import 'quill-mention'
 
 import { QuillEditorComponent } from 'ngx-quill'
@@ -16,7 +15,7 @@ export class MentionComponent {
     mention: {
       allowedChars: /^[A-Za-z\sÅÄÖåäö]*$/,
       onSelect: (item, insertItem) => {
-        const editor = this.editor.quillEditor as Quill
+        const editor = this.editor.quillEditor
         insertItem(item)
         // necessary because quill-mention triggers changes as 'api' instead of 'user'
         editor.insertText(editor.getLength() - 1, '', 'user')
