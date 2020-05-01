@@ -2,7 +2,6 @@ import { Component } from '@angular/core'
 
 import Quill from 'quill'
 
-import { QuillEditor } from 'ngx-quill'
 import ImageResize from 'quill-image-resize-module'
 Quill.register('modules/imageResize', ImageResize)
 
@@ -22,7 +21,7 @@ export class FormulaComponent {
     }
   }
 
-  addBindingCreated(quill: QuillEditor) {
+  addBindingCreated(quill: Quill) {
     quill.keyboard.addBinding({
       key: 'b'
     }, (range, context) => {
@@ -33,7 +32,7 @@ export class FormulaComponent {
     quill.keyboard.addBinding({
       key: 'B',
       shiftKey: true
-    }, (range, context) => {
+    } as any, (range, context) => {
       // tslint:disable-next-line:no-console
       console.log('KEYBINDING SHIFT + B', range, context)
     })

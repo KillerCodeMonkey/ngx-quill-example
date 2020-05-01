@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { EditorChangeContent, EditorChangeSelection } from 'ngx-quill'
-import { QuillEditor } from 'ngx-quill'
+import Quill from 'quill'
 
 @Component({
   selector: 'app-default',
@@ -10,7 +10,7 @@ export class DefaultComponent {
   blured = false
   focused = false
 
-  created(event: QuillEditor) {
+  created(event: Quill) {
     // tslint:disable-next-line:no-console
     console.log('editor-created', event)
   }

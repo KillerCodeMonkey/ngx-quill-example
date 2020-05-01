@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 
-import { QuillEditor } from 'ngx-quill'
+import Quill from 'quill'
 import 'quill-emoji/dist/quill-emoji.js'
 
 @Component({
@@ -19,7 +19,7 @@ export class EmojiComponent {
     }
   }
 
-  addBindingCreated(quill: QuillEditor) {
+  addBindingCreated(quill: Quill) {
     quill.keyboard.addBinding({
       key: 'b'
     }, (range, context) => {
@@ -30,7 +30,7 @@ export class EmojiComponent {
     quill.keyboard.addBinding({
       key: 'B',
       shiftKey: true
-    }, (range, context) => {
+    } as any, (range, context) => {
       // tslint:disable-next-line:no-console
       console.log('KEYBINDING SHIFT + B', range, context)
     })
