@@ -6,6 +6,7 @@ import { QuillModule } from 'ngx-quill'
 import { ChildModule } from './child-module/child-module'
 
 import { AppComponent } from './app.component'
+import Counter from './counter'
 
 import { ActivateRtlComponent } from './activate-rtl/activate-rtl.component'
 import { BubbleEditorComponent } from './bubble-editor/bubble-editor.component'
@@ -55,7 +56,16 @@ import { ViewComponent } from './view/view.component'
   ],
   imports: [
     BrowserModule,
-    QuillModule.forRoot(),
+    QuillModule.forRoot({
+      customModules: [{
+        implementation: Counter,
+        path: 'modules/counter'
+      }],
+      customOptions: [{
+        import: 'formats/font',
+        whitelist: ['mirza', 'roboto', 'aref', 'serif', 'sansserif', 'monospace']
+      }]
+    }),
     ChildModule,
     FormsModule,
     ReactiveFormsModule
