@@ -40,7 +40,7 @@
     "codelyzer": "~5.2.2",
     "gh-pages": "^2.2.0",
     "terser": "^4.6.13",
-    "ts-node": "^8.9.1",
+    "ts-node": "^8.10.1",
     "tslint": "~5.20.1",
     "tslint-eslint-rules": "^5.4.0",
     "typescript": "~3.8.3"
