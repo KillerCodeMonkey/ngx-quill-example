@@ -16,11 +16,10 @@
   {{ form.get('editor').value }}
   <button type="button" (click)="patchValue()">patchValue</button>
   <button type="button" (click)="setControl()">setControl</button>
-
   <quill-editor
     #editor [style.display]="hide ? 'none' : 'block'"
     [styles]="{ backgroundColor:backgroundColor }"
-    [formControl]="form.controls['editor']">
+    formControlName="editor">
   </quill-editor>
 
 </form>

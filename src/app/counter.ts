@@ -20,7 +20,7 @@ export default class Counter {
 
     const container = document.querySelector(this.options.container)
 
-    this.quill.on('text-change', () => {
+    this.quill.on('editor-change', () => {
       const length = this.calculate()
 
       container.innerHTML = length + ' ' + this.options.unit + 's'
