@@ -13,6 +13,7 @@ import {
 	Renderer2,
 	Self
 } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import {
 	ControlValueAccessor,
 	FormGroupDirective,
@@ -34,7 +35,6 @@ import {
 import { HasErrorState } from '@angular/material/core/common-behaviors/error-state';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { QUILL_CONFIG_TOKEN, QuillConfig, QuillEditorBase, QuillService } from 'ngx-quill';
-import { DOCUMENT } from '@angular/common';
 
 // Boilerplate for applying mixins to _MatQuillBase
 class MatQuillBase extends QuillEditorBase
