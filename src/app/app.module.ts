@@ -8,6 +8,10 @@ import { ChildModule } from './child-module/child-module'
 import { AppComponent } from './app.component'
 import Counter from './counter'
 
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MatQuillModule } from './mat-quill/mat-quill-module'
+
 import { ActivateRtlComponent } from './activate-rtl/activate-rtl.component'
 import { BubbleEditorComponent } from './bubble-editor/bubble-editor.component'
 import { CustomToolbarComponent } from './custom-toolbar/custom-toolbar.component'
@@ -56,6 +60,10 @@ import { ViewComponent } from './view/view.component'
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
     QuillModule.forRoot({
       customModules: [{
         implementation: Counter,
@@ -66,9 +74,8 @@ import { ViewComponent } from './view/view.component'
         whitelist: ['mirza', 'roboto', 'aref', 'serif', 'sansserif', 'monospace']
       }]
     }),
-    ChildModule,
-    FormsModule,
-    ReactiveFormsModule
+    MatQuillModule,
+    ChildModule
   ],
   providers: []
 })
