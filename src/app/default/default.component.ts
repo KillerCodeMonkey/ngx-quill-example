@@ -7,7 +7,7 @@ import Quill from 'quill'
   templateUrl: './default.component.html'
 })
 export class DefaultComponent {
-  blured = false
+  blurred = false
   focused = false
 
   created(event: Quill) {
@@ -24,13 +24,13 @@ export class DefaultComponent {
     // tslint:disable-next-line:no-console
     console.log('focus', $event)
     this.focused = true
-    this.blured = false
+    this.blurred = false
   }
 
   blur($event) {
     // tslint:disable-next-line:no-console
     console.log('blur', $event)
     this.focused = false
-    this.blured = true
+    this.blurred = true
   }
 }
