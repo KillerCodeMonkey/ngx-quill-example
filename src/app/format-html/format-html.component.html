@@ -6,9 +6,13 @@
   </code>
 </pre>
 
-Presentation in HTML
-<div class="ql-container ql-snow" style="border-width: 0;">
-  <div style="width: 100%" class="ql-editor" [innerHTML]="byPassHTML(form.get('html').value)"></div>
+<div>
+  Presentation in HTML
+  <div class="ql-container ql-snow" style="border-width: 0;">
+    <div style="width: 100%" class="ql-editor" [innerHTML]="byPassHTML(form.get('html').value)"></div>
+    Material Quill
+    <div style="width: 100%" class="ql-editor" [innerHTML]="byPassHTML(form.get('matQuillHtml').value)"></div>
+  </div>
 </div>
 
 <form [formGroup]="form">

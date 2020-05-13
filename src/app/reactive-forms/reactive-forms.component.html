@@ -12,10 +12,11 @@
   backgroundColor
 </button>
 
+<pre>{{ form.get('editor').value }}</pre>
+<button type="button" (click)="patchValue()">patchValue</button>
+<button type="button" (click)="setControl()">setControl</button>
+
 <form [formGroup]="form">
-  {{ form.get('editor').value }}
-  <button type="button" (click)="patchValue()">patchValue</button>
-  <button type="button" (click)="setControl()">setControl</button>
   <quill-editor
     #editor [style.display]="hide ? 'none' : 'block'"
     [styles]="{ backgroundColor:backgroundColor }"

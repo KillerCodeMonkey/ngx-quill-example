@@ -1,7 +1,9 @@
 <h3 id="modelValidation">NgModel/FormControl + Validation</h3>
 <ng-form #form="ngForm">
-  Form valid: {{ form.valid }}<br>
-  Model valid: {{ modelRef.valid }}<br>
+  <p>
+    Form valid: {{ form.valid }}<br>
+    Model valid: {{ modelRef.valid }}<br>
+  </p>
   <quill-editor name="editor" [(ngModel)]="model" #modelRef="ngModel" [required]="true" [maxLength]="10"></quill-editor>
 
   <h4>Material Quill</h4>
@@ -12,8 +14,10 @@
 </ng-form>
 
 <ng-container *ngIf="formGroup">
-  FormGroup valid: {{ formGroup.valid }}<br>
-  FormControl valid: {{ formGroup.get('control').valid }}<br>
+  <p>
+    FormGroup valid: {{ formGroup.valid }}<br>
+    FormControl valid: {{ formGroup.get('control').valid }}<br>
+  </p>
   <form [formGroup]="formGroup">
     <quill-editor name="editor" formControlName="control" [maxLength]="10" [required]="true"></quill-editor>
 
