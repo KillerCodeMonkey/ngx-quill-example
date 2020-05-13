@@ -1,0 +1,164 @@
+
+/*
+ * QUILL - SAMPLE OVERRIDES
+ */
+
+quill-editor {
+  display: block;
+}
+
+.ql-editor:focus {
+  border: 1px solid #80bdff !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+
+.ng-invalid {
+  border: 1px dashed red;
+}
+
+/* Set dropdown font-families */
+
+[quill-editor-toolbar] .ql-font span[data-label="Aref Ruqaa"]::before {
+  font-family: "Aref Ruqaa";
+}
+
+[quill-editor-toolbar] .ql-font span[data-label="Mirza"]::before {
+  font-family: "Mirza";
+}
+
+[quill-editor-toolbar] .ql-font span[data-label="Roboto"]::before {
+  font-family: "Roboto";
+}
+
+/* Set content font-families */
+
+.ql-font-mirza {
+  font-family: "Mirza";
+}
+
+.ql-font-aref {
+  font-family: "Aref Ruqaa";
+}
+
+.ql-font-roboto {
+  font-family: "Roboto";
+}
+
+/*
+ * ANGULAR MATERIAL
+ */
+
+// Import library functions for theme creation.
+@import '~@angular/material/theming';
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// **Be sure that you only ever include this mixin once!**
+@include mat-core();
+
+// Define the default theme (same as the example above).
+$primary: mat-palette($mat-blue, A700);
+$accent:  mat-palette($mat-blue-grey, A200, A100, A400);
+$warn:    mat-palette($mat-red);
+
+$theme:   mat-light-theme($primary, $accent);
+
+// Include the default theme styles.
+@include angular-material-theme($theme);
+
+/*
+ * COMPONENTS
+ */
+
+// make major example component children full width
+app-root > div > *,
+app-root > div > * > form,
+app-root > div > * > ng-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+app-root > div > * {
+  // any root element in an example component, but H3s
+  > *:not(h3) {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  // make major example component children full width
+  h4,
+  > div,
+  > .ql-container,
+  quill-editor,
+  .mat-form-field {
+    flex: 1;
+  }
+
+  h3 {
+    background: #e0e2e3;
+    font-family: sans-serif;
+    padding: 2rem;
+  }
+
+  h4 {
+    text-align: center;
+  }
+
+  > button {
+    flex: 1 1 32px;
+  }
+
+  // only style the example component pre, not quill's
+  > pre,
+  form > pre {
+    background-color: #fcfcfc;
+    border: 1px solid #b2b2b2;
+    color: #363030;
+    padding: 1.5rem;
+    white-space: normal;
+  }
+}
+
+/*
+ * Material Quill & MatFormField
+ * - demo overrides
+ */
+
+.mat-form-field {
+
+  // Since the default quill styles already provide padding
+  &-appearance-fill .mat-form-field {
+    &-flex {
+      padding: 0 !important;
+    }
+
+    &-infix {
+      border-top: 0;
+      padding: 0;
+    }
+  }
+
+  .ql-container {
+    // set quill caret to match current Angular Material theme
+    caret-color: mat-color($primary, text);
+
+    // Remove redundant quill snow-theme border
+    &.ql-snow {
+      border: none;
+    }
+
+    // Remove all default quill focus indicators
+    .ql-editor {
+      &:focus {
+        border: none !important;
+        box-shadow: none !important;
+      }
+    }
+  }
+
+  // make sure any quill tooltips, bubbles, or popups aren't occluded
+  .ql-tooltip {
+    z-index: 1;
+  }
+}
