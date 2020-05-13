@@ -1,8 +1,18 @@
 <h3 id="formulaImageResize">Formula & image resize editor & Keybinding on 'b' and 'shift + b', CodeBlock + Syntax Highlighting</h3>
-Check index.html how to load and configure katex, highlightjs.
+<p>Check index.html how to load and configure katex, highlightjs.</p>
 <quill-editor
   #editor
   [(ngModel)]="content"
   [modules]="modules"
   (onEditorCreated)="addBindingCreated($event)">
 </quill-editor>
+
+<h4>Material Quill</h4>
+
+<mat-form-field appearance="fill">
+  <mat-quill
+    [(ngModel)]="content"
+	[modules]="modules"
+	(onEditorCreated)="addBindingCreated($event)">
+  </mat-quill>
+</mat-form-field>

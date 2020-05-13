@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
 import { ContentChange, QuillEditorComponent } from 'ngx-quill'
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators'
+import { MatQuill } from '../mat-quill/mat-quill'
 
 @Component({
   selector: 'app-reactive-forms',
@@ -14,10 +15,14 @@ export class ReactiveFormsComponent implements OnInit {
   @ViewChild('editor', {
     static: true
   }) editor: QuillEditorComponent
+  @ViewChild('matEditor', {
+    static: true
+  }) matEditor: MatQuill
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({
-      editor: ['<ol><li>test</li><li>123</li></ol>']
+      editor: ['<ol><li>test</li><li>123</li></ol>'],
+      matEditor: ['<ol><li>test</li><li>123</li></ol>']
     })
   }
 
@@ -44,14 +49,27 @@ export class ReactiveFormsComponent implements OnInit {
         // tslint:disable-next-line:no-console
         console.log('view child + directly subscription', data)
       })
+
+    this.matEditor
+      .onContentChanged
+      .pipe(
+        debounceTime(400),
+        distinctUntilChanged()
+      )
+      .subscribe((data: ContentChange) => {
+        // tslint:disable-next-line:no-console
+        console.log('view child + directly subscription', data)
+      })
   }
 
   setControl() {
     this.form.setControl('editor', new FormControl('test - new Control'))
+    this.form.setControl('matEditor', new FormControl('test - new Control'))
   }
 
   patchValue() {
     this.form.get('editor').patchValue(`${this.form.get('editor').value} patched!`)
+    this.form.get('matEditor').patchValue(`${this.form.get('matEditor').value} patched!`)
   }
 
 }

@@ -10,6 +10,7 @@ import { QuillEditorComponent } from 'ngx-quill'
 export class MentionComponent {
   @ViewChild(QuillEditorComponent, { static: true }) editor: QuillEditorComponent
   content = ''
+  matContent = ''
 
   modules = {
     mention: {
