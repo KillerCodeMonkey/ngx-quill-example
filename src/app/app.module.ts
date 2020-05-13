@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core'
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser'
 
@@ -77,6 +77,7 @@ import { ViewComponent } from './view/view.component'
     MatQuillModule,
     ChildModule
   ],
-  providers: []
+  providers: [],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }
