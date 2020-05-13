@@ -49,14 +49,27 @@ export class ReactiveFormsComponent implements OnInit {
         // tslint:disable-next-line:no-console
         console.log('view child + directly subscription', data)
       })
+
+    this.matEditor
+      .onContentChanged
+      .pipe(
+        debounceTime(400),
+        distinctUntilChanged()
+      )
+      .subscribe((data: ContentChange) => {
+        // tslint:disable-next-line:no-console
+        console.log('view child + directly subscription', data)
+      })
   }
 
   setControl() {
     this.form.setControl('editor', new FormControl('test - new Control'))
+    this.form.setControl('matEditor', new FormControl('test - new Control'))
   }
 
   patchValue() {
     this.form.get('editor').patchValue(`${this.form.get('editor').value} patched!`)
+    this.form.get('matEditor').patchValue(`${this.form.get('matEditor').value} patched!`)
   }
 
 }
