@@ -2,6 +2,7 @@
 <pre>
   <code>
     {{ form.get('html').value }}
+    {{ form.get('matQuillHtml').value }}
   </code>
 </pre>
 
@@ -12,4 +13,10 @@ Presentation in HTML
 
 <form [formGroup]="form">
   <quill-editor format="html" formControlName="html"></quill-editor>
+
+  <h4>Material Quill</h4>
+
+  <mat-form-field appearance="fill">
+    <mat-quill format="html" formControlName="matQuillHtml"></mat-quill>
+  </mat-form-field>
 </form>

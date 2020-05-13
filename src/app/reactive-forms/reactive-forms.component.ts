@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
 import { ContentChange, QuillEditorComponent } from 'ngx-quill'
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators'
+import { MatQuill } from '../mat-quill/mat-quill'
 
 @Component({
   selector: 'app-reactive-forms',
@@ -14,10 +15,14 @@ export class ReactiveFormsComponent implements OnInit {
   @ViewChild('editor', {
     static: true
   }) editor: QuillEditorComponent
+  @ViewChild('matEditor', {
+    static: true
+  }) matEditor: MatQuill
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({
-      editor: ['<ol><li>test</li><li>123</li></ol>']
+      editor: ['<ol><li>test</li><li>123</li></ol>'],
+      matEditor: ['<ol><li>test</li><li>123</li></ol>']
     })
   }
 

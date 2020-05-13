@@ -13,3 +13,18 @@ Required: {{isRequired}}
   (onContentChanged)="logChange($event);"
   (onSelectionChanged)="logSelection($event);">
 </quill-editor>
+
+<h4>Material Quill</h4>
+
+<pre>{{ form.get('matTitle').value }}</pre>
+<mat-form-field appearance="fill">
+  <mat-quill
+    [formControl]="form.get('matTitle')"
+    [maxLength]="10"
+    [required]="isRequired"
+    [readOnly]="isReadOnly"
+    [modules]="{toolbar: false}"
+    (onContentChanged)="logChange($event);"
+    (onSelectionChanged)="logSelection($event);">
+  </mat-quill>
+</mat-form-field>

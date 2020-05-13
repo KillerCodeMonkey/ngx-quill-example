@@ -35,3 +35,44 @@
     </span>
   </div>
 </quill-editor>
+
+<h4>Material Quill</h4>
+
+<mat-form-field appearance="fill">
+  <mat-quill
+    customToolbarPosition="bottom"
+    [(ngModel)]="editorModel"
+    format="object"
+    [modules]="{ counter: { container: '#mat-quill-counter', unit: 'word' } }">
+    <div quill-editor-toolbar>
+      <span class="ql-formats">
+        <select class="ql-font">
+          <option value="aref">Aref Ruqaa</option>
+          <option value="mirza">Mirza</option>
+          <option selected value="roboto">Roboto</option>
+        </select>
+        <select class="ql-align" [title]="'Aligment'">
+          <option selected></option>
+          <option value="center"></option>
+          <option value="right"></option>
+          <option value="justify"></option>
+        </select>
+        <select class="ql-align" [title]="'Aligment2'">
+          <option selected></option>
+          <option value="center"></option>
+          <option value="right"></option>
+          <option value="justify"></option>
+        </select>
+
+        <select class="ql-color" [title]="'Color'">
+        </select>
+
+        <select class="ql-background" [title]="'BackgroundColor'">
+        </select>
+      </span>
+      <span class="ql-formats">
+        <div id="mat-quill-counter"></div>
+      </span>
+    </div>
+  </mat-quill>
+</mat-form-field>

@@ -11,7 +11,8 @@ export class ModelValidation {
 
   constructor(private fb: FormBuilder) {
     this.formGroup = fb.group({
-      control: new FormControl('too long for validation')
+      control: new FormControl('too long for validation'),
+      matControl: new FormControl('too long for validation')
     })
   }
 }

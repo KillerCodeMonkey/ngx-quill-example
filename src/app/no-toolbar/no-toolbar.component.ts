@@ -13,6 +13,7 @@ export class NoToolbarComponent {
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({
+      matTitle: [''],
       title: ['']
     })
   }

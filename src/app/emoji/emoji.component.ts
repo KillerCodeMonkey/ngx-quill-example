@@ -10,6 +10,7 @@ import 'quill-emoji/dist/quill-emoji.js'
 export class EmojiComponent {
   modules = {}
   content = ''
+  matContent = ''
   constructor() {
     this.modules = {
       'emoji-shortname': true,
