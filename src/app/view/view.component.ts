@@ -10,4 +10,6 @@ export class ViewComponent {
     { insert: 'World!', attributes: { bold: true } },
     { insert: '\n' }
   ]
+
+  dangerousHtml = `<p><img src="http://google.com/" onerror="alert('Sanitizing not working :(')">Incorrect image src should not open alert</p>`
 }
