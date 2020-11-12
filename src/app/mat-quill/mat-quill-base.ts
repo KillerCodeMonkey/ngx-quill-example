@@ -111,6 +111,7 @@ export abstract class _MatQuillBase
    */
 
   @Input()
+  // @ts-ignore
   get disabled(): boolean
   {
     if (this.ngControl && this.ngControl.disabled !== null) {
@@ -136,6 +137,7 @@ export abstract class _MatQuillBase
   }
 
   @Input()
+  // @ts-ignore
   get placeholder(): string { return this._placeholder }
   set placeholder(value: string) {
     this._placeholder = value
@@ -144,6 +146,7 @@ export abstract class _MatQuillBase
   protected _placeholder: string
 
   @Input()
+  // @ts-ignore
   get required(): boolean { return this._required }
   set required(value: boolean) {
     this._required = coerceBooleanProperty(value)
