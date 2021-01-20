@@ -4,7 +4,7 @@
     Form valid: {{ form.valid }}<br>
     Model valid: {{ modelRef.valid }}<br>
   </p>
-  <quill-editor name="editor" [(ngModel)]="model" #modelRef="ngModel" [required]="true" [maxLength]="10"></quill-editor>
+  <quill-editor name="editor" [(ngModel)]="model" [placeholder]="'my placeholder'" #modelRef="ngModel" [required]="true" [maxLength]="10"></quill-editor>
 
   <h4>Material Quill</h4>
 
