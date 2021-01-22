@@ -17,7 +17,7 @@
     "@angular/core": "^11.1.0",
     "@angular/forms": "^11.1.0",
     "@angular/localize": "^11.0.9",
-    "@angular/material": "^11.0.4",
+    "@angular/material": "^11.1.0",
     "@angular/platform-browser": "^11.1.0",
     "@angular/platform-browser-dynamic": "^11.1.0",
     "@angular/router": "^11.1.0",
