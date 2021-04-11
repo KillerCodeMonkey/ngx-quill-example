@@ -34,3 +34,14 @@
     </mat-quill>
   </mat-form-field>
 </form>
+
+<h4>Complex reactive form</h4>
+<p><small>Group with an array with a group of controls</small></p>
+<form [formGroup]="complexForm">
+  <ng-container formArrayName="contents">
+    <ng-container *ngFor="let content of formArray().controls; let i=index;" [formGroupName]="i">
+      <quill-editor formControlName="body">
+      </quill-editor>
+    </ng-container>
+  </ng-container>
+</form>
