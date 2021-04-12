@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core'
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms'
 import { ContentChange, QuillEditorComponent } from 'ngx-quill'
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators'
 import { MatQuill } from '../mat-quill/mat-quill'
@@ -11,6 +11,7 @@ import { MatQuill } from '../mat-quill/mat-quill'
 export class ReactiveFormsComponent implements OnInit {
   hide = false
   form: FormGroup
+  complexForm: FormGroup
   backgroundColor = ''
   @ViewChild('editor', {
     static: true
@@ -24,6 +25,15 @@ export class ReactiveFormsComponent implements OnInit {
       editor: ['<ol><li>test</li><li>123</li></ol>'],
       matEditor: ['<ol><li>test</li><li>123</li></ol>']
     })
+    this.complexForm = fb.group({
+      contents: new FormArray([
+        fb.group({ body: new FormControl('<ol><li>test</li><li>123</li></ol>') })
+      ])
+    })
+  }
+
+  formArray() {
+    return this.complexForm.get('contents') as FormArray
   }
 
   ngOnInit() {
