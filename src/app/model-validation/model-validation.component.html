@@ -25,7 +25,13 @@
 
     FormControl valid: {{ formGroup.get('matControl').valid }}<br>
     <mat-form-field appearance="fill">
-      <mat-quill name="editor" formControlName="matControl" [maxLength]="10" [required]="true"></mat-quill>
+      <mat-quill matInput name="editor" formControlName="matControl" [maxLength]="10" [required]="true"></mat-quill>
+      <mat-error *ngIf="form.controls.matControl.hasError('required')">
+        Required
+      </mat-error>
+      <mat-error *ngIf="form.controls.matControl.hasError('maxlength')">
+        maxlength exceeded
+      </mat-error>
     </mat-form-field>
   </form>
 </ng-container>
