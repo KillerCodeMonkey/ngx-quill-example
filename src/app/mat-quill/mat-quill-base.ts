@@ -35,6 +35,8 @@ import {
 import { HasErrorState } from '@angular/material/core/common-behaviors/error-state'
 import { MatFormFieldControl } from '@angular/material/form-field'
 import { QuillEditorBase, QuillService } from 'ngx-quill'
+import { debounceTime, distinctUntilChanged, takeUntil } from 'rxjs/operators'
+import { Subject } from 'rxjs'
 
 // Boilerplate for applying mixins to _MatQuillBase
 class MatQuillBase extends QuillEditorBase
@@ -73,6 +75,7 @@ export abstract class _MatQuillBase
   abstract controlType: string
   focused = false
   abstract id: string
+  unsubscribeAll = new Subject();
 
   constructor(
     defaultErrorStateMatcher: ErrorStateMatcher,
@@ -96,16 +99,34 @@ export abstract class _MatQuillBase
       this.ngControl.valueAccessor = this;
     }
 
-    this.onBlur.subscribe(() => {
+    this.onContentChanged
+      .pipe(
+        takeUntil(this.unsubscribeAll),
+        debounceTime(300),
+        distinctUntilChanged()
+      ).subscribe(() => {
+      this.updateErrorState();
+      this.stateChanges.next();
+    });
+
+    this.onBlur.pipe(takeUntil(this.unsubscribeAll)).subscribe(() => {
       this.focused = false
+      if (!this.ngControl.control.touched) {
+        this.ngControl.control.markAsTouched();
+      }
       this.stateChanges.next()
     })
-    this.onFocus.subscribe(() => {
+    this.onFocus.pipe(takeUntil(this.unsubscribeAll)).subscribe(() => {
       this.focused = true
       this.stateChanges.next()
     })
   }
 
+  ngOnDestroy() {
+    this.unsubscribeAll.next()
+    this.unsubscribeAll.complete()
+    super.ngOnDestroy()
+  }
   /*
    * GETTERS & SETTERS
    */
