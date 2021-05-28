@@ -35,7 +35,7 @@ import {
 import { HasErrorState } from '@angular/material/core/common-behaviors/error-state'
 import { MatFormFieldControl } from '@angular/material/form-field'
 import { QuillEditorBase, QuillService } from 'ngx-quill'
-import { debounceTime, distinctUntilChanged, takeUntil } from 'rxjs/operators'
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators'
 import { Subscription } from 'rxjs'
 
 // Boilerplate for applying mixins to _MatQuillBase
