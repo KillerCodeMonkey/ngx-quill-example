@@ -34,9 +34,9 @@ import {
 } from '@angular/material/core'
 import { HasErrorState } from '@angular/material/core/common-behaviors/error-state'
 import { MatFormFieldControl } from '@angular/material/form-field'
-import { QuillEditorBase, QuillService } from 'ngx-quill'
+import { Blur, ContentChange, Focus, QuillEditorBase, QuillService } from 'ngx-quill'
 import { debounceTime, distinctUntilChanged, takeUntil } from 'rxjs/operators'
-import { Subject } from 'rxjs'
+import { Observable, Subject, Subscription } from 'rxjs'
 
 // Boilerplate for applying mixins to _MatQuillBase
 class MatQuillBase extends QuillEditorBase
@@ -75,7 +75,9 @@ export abstract class _MatQuillBase
   abstract controlType: string
   focused = false
   abstract id: string
-  unsubscribeAll = new Subject();
+  private contentChangedSubscription: Subscription
+  private blurSubscription: Subscription
+  private focusSubscription: Subscription
 
   constructor(
     defaultErrorStateMatcher: ErrorStateMatcher,
@@ -96,30 +98,32 @@ export abstract class _MatQuillBase
     )
 
     if (this.ngControl != null) {
-      this.ngControl.valueAccessor = this;
+      this.ngControl.valueAccessor = this
     }
 
-    this.onContentChanged.pipe(takeUntil(this.unsubscribeAll), debounceTime(300), distinctUntilChanged()).subscribe(() => {
+    this.contentChangedSubscription = this.onContentChanged.pipe(debounceTime(300), distinctUntilChanged()).subscribe(() => {
       this.updateErrorState()
       this.stateChanges.next()
     })
 
-    this.onBlur.pipe(takeUntil(this.unsubscribeAll)).subscribe(() => {
+    this.blurSubscription = this.onBlur.subscribe(() => {
       this.focused = false
       if (!this.ngControl.control.touched) {
         this.ngControl.control.markAsTouched();
       }
       this.stateChanges.next()
     })
-    this.onFocus.pipe(takeUntil(this.unsubscribeAll)).subscribe(() => {
+    
+    this.focusSubscription = this.onFocus.subscribe(() => {
       this.focused = true
       this.stateChanges.next()
     })
   }
 
   ngOnDestroy() {
-    this.unsubscribeAll.next()
-    this.unsubscribeAll.complete()
+    this.contentChangedSubscription.unsubscribe()
+    this.blurSubscription.unsubscribe()
+    this.focusSubscription.unsubscribe()
     super.ngOnDestroy()
   }
   /*
