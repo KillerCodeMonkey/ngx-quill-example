@@ -99,15 +99,10 @@ export abstract class _MatQuillBase
       this.ngControl.valueAccessor = this;
     }
 
-    this.onContentChanged
-      .pipe(
-        takeUntil(this.unsubscribeAll),
-        debounceTime(300),
-        distinctUntilChanged()
-      ).subscribe(() => {
-      this.updateErrorState();
-      this.stateChanges.next();
-    });
+    this.onContentChanged.pipe(takeUntil(this.unsubscribeAll), debounceTime(300), distinctUntilChanged()).subscribe(() => {
+      this.updateErrorState()
+      this.stateChanges.next()
+    })
 
     this.onBlur.pipe(takeUntil(this.unsubscribeAll)).subscribe(() => {
       this.focused = false
