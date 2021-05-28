@@ -34,9 +34,9 @@ import {
 } from '@angular/material/core'
 import { HasErrorState } from '@angular/material/core/common-behaviors/error-state'
 import { MatFormFieldControl } from '@angular/material/form-field'
-import { Blur, ContentChange, Focus, QuillEditorBase, QuillService } from 'ngx-quill'
+import { QuillEditorBase, QuillService } from 'ngx-quill'
 import { debounceTime, distinctUntilChanged, takeUntil } from 'rxjs/operators'
-import { Observable, Subject, Subscription } from 'rxjs'
+import { Subscription } from 'rxjs'
 
 // Boilerplate for applying mixins to _MatQuillBase
 class MatQuillBase extends QuillEditorBase
