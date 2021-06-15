@@ -29,7 +29,7 @@
     "quill-image-resize-module": "^3.0.0",
     "quill-mention": "^2.2.7",
     "rxjs": "~6.5.5",
-    "tslib": "^2.2.0",
+    "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
