@@ -97,7 +97,7 @@ export abstract class _MatQuillBase
       elementRef, domSanitizer, doc, platformId, renderer, zone, service
     )
 
-    if (this.ngControl != null) {
+    if (!!this.ngControl) {
       this.ngControl.valueAccessor = this
     }
 
@@ -108,7 +108,7 @@ export abstract class _MatQuillBase
 
     this.blurSubscription = this.onBlur.subscribe(() => {
       this.focused = false
-      if (!this.ngControl.control.touched) {
+      if (!!this.ngControl && !this.ngControl.control.touched) {
         this.ngControl.control.markAsTouched();
       }
       this.stateChanges.next()
