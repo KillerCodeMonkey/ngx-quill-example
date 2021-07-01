@@ -11,7 +11,8 @@ import {
   Optional,
   PLATFORM_ID,
   Renderer2,
-  Self
+  Self,
+  Injector
 } from '@angular/core'
 import { DOCUMENT } from '@angular/common'
 import {
@@ -46,22 +47,22 @@ class MatQuillBase extends QuillEditorBase
     public _parentForm: NgForm,
     public _parentFormGroup: FormGroupDirective,
     public ngControl: NgControl,
+    injector: Injector,
     elementRef: ElementRef,
     domSanitizer: DomSanitizer,
-    doc: any,
     platformId: any,
     renderer: Renderer2,
     zone: NgZone,
     service: QuillService
   ) {
     super(
-      elementRef, domSanitizer, doc, platformId,
+      injector, elementRef, domSanitizer, platformId,
       renderer, zone, service
     )
   }
 }
 
-const _MatQuillMixinBase: CanUpdateErrorStateCtor & CanDisableCtor & typeof MatQuillBase =
+const _MatQuillMixinBase =
   mixinErrorState(mixinDisabled(MatQuillBase))
 
 @Directive()
@@ -86,15 +87,15 @@ export abstract class _MatQuillBase
     @Optional() @Self() public ngControl: NgControl,
     elementRef: ElementRef,
     domSanitizer: DomSanitizer,
-    @Inject(DOCUMENT) doc: any,
     @Inject(PLATFORM_ID) platformId: any,
     renderer: Renderer2,
     zone: NgZone,
+    injector: Injector,
     service: QuillService
   ) {
     super(
       defaultErrorStateMatcher, parentForm, parentFormGroup, ngControl,
-      elementRef, domSanitizer, doc, platformId, renderer, zone, service
+      injector, elementRef, domSanitizer, platformId, renderer, zone, service
     )
 
     if (!!this.ngControl) {
