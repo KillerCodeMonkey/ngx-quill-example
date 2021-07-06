@@ -14,7 +14,6 @@ import {
   Self,
   Injector
 } from '@angular/core'
-import { DOCUMENT } from '@angular/common'
 import {
   ControlValueAccessor,
   FormGroupDirective,
