@@ -11,7 +11,8 @@ import {
   Optional,
   PLATFORM_ID,
   Renderer2,
-  Self
+  Self,
+  Injector
 } from '@angular/core'
 import { DOCUMENT } from '@angular/common'
 import {
@@ -48,14 +49,14 @@ class MatQuillBase extends QuillEditorBase
     public ngControl: NgControl,
     elementRef: ElementRef,
     domSanitizer: DomSanitizer,
-    doc: any,
+    injector: Injector,
     platformId: any,
     renderer: Renderer2,
     zone: NgZone,
     service: QuillService
   ) {
     super(
-      elementRef, domSanitizer, doc, platformId,
+      injector, elementRef, domSanitizer, platformId,
       renderer, zone, service
     )
   }
@@ -86,7 +87,7 @@ export abstract class _MatQuillBase
     @Optional() @Self() public ngControl: NgControl,
     elementRef: ElementRef,
     domSanitizer: DomSanitizer,
-    @Inject(DOCUMENT) doc: any,
+    injector: Injector,
     @Inject(PLATFORM_ID) platformId: any,
     renderer: Renderer2,
     zone: NgZone,
@@ -94,7 +95,7 @@ export abstract class _MatQuillBase
   ) {
     super(
       defaultErrorStateMatcher, parentForm, parentFormGroup, ngControl,
-      elementRef, domSanitizer, doc, platformId, renderer, zone, service
+      elementRef, domSanitizer, injector, platformId, renderer, zone, service
     )
 
     if (this.ngControl != null) {

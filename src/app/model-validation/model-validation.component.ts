@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-model-validation',
@@ -12,7 +12,7 @@ export class ModelValidation {
   constructor(fb: FormBuilder) {
     this.formGroup = fb.group({
       control: new FormControl('too long for validation'),
-      matControl: new FormControl('too long for validation')
+      matControl: new FormControl('too long for validation', [Validators.maxLength(10)])
     })
   }
 }

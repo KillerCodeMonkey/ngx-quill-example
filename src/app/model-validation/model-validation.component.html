@@ -27,10 +27,10 @@
     <mat-form-field appearance="fill" floatLabel='always'>
       <mat-label>Label mat-quill</mat-label>
       <mat-quill matInput name="editor" formControlName="matControl" [maxLength]="10" [required]="true"></mat-quill>
-      <mat-error *ngIf="form.controls.matControl.hasError('required')">
+      <mat-error *ngIf="formGroup.get('matControl').hasError('required')">
         Required
       </mat-error>
-      <mat-error *ngIf="form.controls.matControl.hasError('maxlength')">
+      <mat-error *ngIf="formGroup.get('matControl').hasError('maxlength')">
         maxlength exceeded
       </mat-error>
       <mat-hint>Just write :)</mat-hint>
