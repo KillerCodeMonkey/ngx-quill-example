@@ -135,7 +135,7 @@ export abstract class _MatQuillBase
   disabled = false
 
   get empty() {
-    return coerceBooleanProperty(this.value)
+    return !coerceBooleanProperty(this.value)
   }
 
   @Input()
