@@ -110,7 +110,8 @@ export abstract class _MatQuillBase
     this.blurSubscription = this.onBlur.subscribe(() => {
       this.focused = false
       if (!!this.ngControl && !this.ngControl.control.touched) {
-        this.ngControl.control.markAsTouched();
+        this.ngControl.control.markAsTouched()
+        this.updateErrorState()
       }
       this.stateChanges.next()
     })
