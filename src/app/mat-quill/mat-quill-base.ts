@@ -12,7 +12,8 @@ import {
   PLATFORM_ID,
   Renderer2,
   Self,
-  Injector
+  Injector,
+  ChangeDetectorRef
 } from '@angular/core'
 import { DOCUMENT } from '@angular/common'
 import {
@@ -48,6 +49,7 @@ class MatQuillBase extends QuillEditorBase
     public _parentFormGroup: FormGroupDirective,
     public ngControl: NgControl,
     injector: Injector,
+    cdr: ChangeDetectorRef,
     elementRef: ElementRef,
     domSanitizer: DomSanitizer,
     platformId: any,
@@ -56,7 +58,7 @@ class MatQuillBase extends QuillEditorBase
     service: QuillService
   ) {
     super(
-      injector, elementRef, domSanitizer, platformId,
+      injector, elementRef, cdr, domSanitizer, platformId,
       renderer, zone, service
     )
   }
@@ -85,6 +87,7 @@ export abstract class _MatQuillBase
     @Optional() parentForm: NgForm,
     @Optional() parentFormGroup: FormGroupDirective,
     @Optional() @Self() public ngControl: NgControl,
+    cdr: ChangeDetectorRef,
     elementRef: ElementRef,
     domSanitizer: DomSanitizer,
     @Inject(PLATFORM_ID) platformId: any,
@@ -95,7 +98,7 @@ export abstract class _MatQuillBase
   ) {
     super(
       defaultErrorStateMatcher, parentForm, parentFormGroup, ngControl,
-      injector, elementRef, domSanitizer, platformId, renderer, zone, service
+      injector, cdr, elementRef, domSanitizer, platformId, renderer, zone, service
     )
 
     if (!!this.ngControl) {
