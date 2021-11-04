@@ -27,9 +27,7 @@ import { DomSanitizer } from '@angular/platform-browser'
 import { coerceBooleanProperty } from '@angular/cdk/coercion'
 import {
   CanDisable,
-  CanDisableCtor,
   CanUpdateErrorState,
-  CanUpdateErrorStateCtor,
   ErrorStateMatcher,
   mixinDisabled,
   mixinErrorState
