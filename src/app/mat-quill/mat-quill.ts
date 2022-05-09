@@ -15,7 +15,15 @@ const SELECTOR = 'mat-quill'
   selector: SELECTOR,
   exportAs: 'matQuill',
   template: `
+    <ng-container *ngIf="toolbarPosition !== 'top'">
+      <div quill-editor-element *ngIf="!preserve"></div>
+      <pre quill-editor-element *ngIf="preserve"></pre>
+    </ng-container>
     <ng-content select="[quill-editor-toolbar]"></ng-content>
+    <ng-container *ngIf="toolbarPosition === 'top'">
+      <div quill-editor-element *ngIf="!preserve"></div>
+      <pre quill-editor-element *ngIf="preserve"></pre>
+    </ng-container>
     <ng-content></ng-content>
   `,
   inputs: ['disabled'],
