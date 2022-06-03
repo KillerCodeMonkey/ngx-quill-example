@@ -32,15 +32,17 @@ import {
   mixinDisabled,
   mixinErrorState
 } from '@angular/material/core'
-import { HasErrorState } from '@angular/material/core/common-behaviors/error-state'
 import { MatFormFieldControl } from '@angular/material/form-field'
 import { QuillEditorBase, QuillService } from 'ngx-quill'
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators'
-import { Subscription } from 'rxjs'
+import { Subject, Subscription } from 'rxjs'
 
 // Boilerplate for applying mixins to _MatQuillBase
 class MatQuillBase extends QuillEditorBase
 {
+
+  stateChanges = new Subject<void>()
+
   constructor(
     public _defaultErrorStateMatcher: ErrorStateMatcher,
     public _parentForm: NgForm,
@@ -68,8 +70,8 @@ const _MatQuillMixinBase =
 @Directive()
 export abstract class _MatQuillBase
   extends _MatQuillMixinBase
-  implements AfterViewInit, CanDisable, CanUpdateErrorState,
-    ControlValueAccessor, HasErrorState,
+  implements CanDisable, CanUpdateErrorState,
+    ControlValueAccessor,
     MatFormFieldControl<any>, OnChanges,
     OnDestroy, Validator
 {
