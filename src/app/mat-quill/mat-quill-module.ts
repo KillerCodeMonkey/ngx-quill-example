@@ -10,7 +10,7 @@ import { MatQuill } from './mat-quill'
   declarations: [MatQuill],
   exports: [MatQuill],
   imports: [
-    CommonModule,
+    BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     QuillModule,
