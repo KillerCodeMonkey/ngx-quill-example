@@ -5,6 +5,6 @@ import { Component } from '@angular/core'
   templateUrl: './sanitize-html.component.html'
 })
 export class SanitizeHtmlComponent {
-  dangerousHtml = `<p><img src="http://google.com/" onerror="alert('Sanatizing not working :(')">Incorrect image src should not open alert</p>`
+  dangerousHtml = `<p><img src="https://google.com/" onerror="alert('Sanatizing not working :(')">Incorrect image src should not open alert</p>`
   dangerousModel = ''
 }
