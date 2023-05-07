@@ -1,21 +1,12 @@
 import {
   Directive,
-  AfterViewInit,
-  ElementRef,
   HostBinding,
-  Inject,
   Input,
-  NgZone,
   OnChanges,
   OnDestroy,
   Optional,
-  PLATFORM_ID,
-  Renderer2,
   Self,
-  Injector,
-  ChangeDetectorRef
 } from '@angular/core'
-import { DOCUMENT } from '@angular/common'
 import {
   ControlValueAccessor,
   FormGroupDirective,
@@ -23,7 +14,6 @@ import {
   NgForm,
   Validator
 } from '@angular/forms'
-import { DomSanitizer } from '@angular/platform-browser'
 import { coerceBooleanProperty } from '@angular/cdk/coercion'
 import {
   CanDisable,
@@ -48,18 +38,8 @@ class MatQuillBase extends QuillEditorBase
     public _parentForm: NgForm,
     public _parentFormGroup: FormGroupDirective,
     public ngControl: NgControl,
-    injector: Injector,
-    cdr: ChangeDetectorRef,
-    elementRef: ElementRef,
-    domSanitizer: DomSanitizer,
-    platformId: any,
-    renderer: Renderer2,
-    zone: NgZone,
-    service: QuillService
   ) {
     super(
-      injector, elementRef, cdr, domSanitizer, platformId,
-      renderer, zone, service
     )
   }
 }
@@ -87,18 +67,9 @@ export abstract class _MatQuillBase
     @Optional() parentForm: NgForm,
     @Optional() parentFormGroup: FormGroupDirective,
     @Optional() @Self() public ngControl: NgControl,
-    cdr: ChangeDetectorRef,
-    elementRef: ElementRef,
-    domSanitizer: DomSanitizer,
-    @Inject(PLATFORM_ID) platformId: any,
-    renderer: Renderer2,
-    zone: NgZone,
-    injector: Injector,
-    service: QuillService
   ) {
     super(
       defaultErrorStateMatcher, parentForm, parentFormGroup, ngControl,
-      injector, cdr, elementRef, domSanitizer, platformId, renderer, zone, service
     )
 
     if (!!this.ngControl) {
