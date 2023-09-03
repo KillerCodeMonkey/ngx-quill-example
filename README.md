@@ -1,7 +1,7 @@
 # ngx-quill-example
 
 The demo app for the usage of the [ngx-quill](https://github.com/KillerCodeMonkey/ngx-quill) module.
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
 [Live Demo](https://killercodemonkey.github.io/ngx-quill-example/)
 
