@@ -26,11 +26,19 @@ export class DefaultComponent {
     this.focused = true
     this.blurred = false
   }
+  nativeFocus($event) {
+    // tslint:disable-next-line:no-console
+    console.log('native-focus', $event)
+  }
 
   blur($event) {
     // tslint:disable-next-line:no-console
     console.log('blur', $event)
     this.focused = false
     this.blurred = true
+  }
+  nativeBlur($event) {
+    // tslint:disable-next-line:no-console
+    console.log('native-blur', $event)
   }
 }
