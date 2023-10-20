@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core'
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms'
-import { ContentChange, QuillEditorComponent } from 'ngx-quill'
+import { ContentChange, QuillEditorComponent } from 'ngx-quill'
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators'
 import { MatQuill } from '../mat-quill/mat-quill'
 
