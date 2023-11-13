@@ -11,7 +11,7 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:browser-esbuild",
           "options": {
             "aot": true,
             "outputPath": "dist",
@@ -69,18 +69,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-quill-example:build"
+            "buildTarget": "ngx-quill-example:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-quill-example:build:production"
+              "buildTarget": "ngx-quill-example:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-quill-example:build"
+            "buildTarget": "ngx-quill-example:build"
           }
         }
       }
