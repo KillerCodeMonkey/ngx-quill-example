@@ -16,13 +16,13 @@ import { ActivateRtlComponent } from './activate-rtl/activate-rtl.component'
 import { BubbleEditorComponent } from './bubble-editor/bubble-editor.component'
 import { CustomToolbarComponent } from './custom-toolbar/custom-toolbar.component'
 import { DefaultComponent } from './default/default.component'
-import { EmojiComponent } from './emoji/emoji.component'
+// import { EmojiComponent } from './emoji/emoji.component'
 import { FormatHtmlComponent } from './format-html/format-html.component'
 import { FormatJsonComponent } from './format-json/format-json.component'
 import { FormatObjectComponent } from './format-object/format-object.component'
 import { FormatTextComponent } from './format-text/format-text.component'
-import { FormulaComponent } from './formula/formula.component'
-import { MentionComponent } from './mention/mention.component'
+// import { FormulaComponent } from './formula/formula.component'
+// import { MentionComponent } from './mention/mention.component'
 import { ModelValidation } from './model-validation/model-validation.component'
 import { NoSanitizeHtmlComponent } from './no-sanitize-html/no-sanitize-html.component'
 import { NoToolbarComponent } from './no-toolbar/no-toolbar.component'
@@ -40,11 +40,11 @@ import { ViewComponent } from './view/view.component'
     DefaultComponent,
     ActivateRtlComponent,
     SanitizeHtmlComponent,
-    FormulaComponent,
+    // FormulaComponent,
     ReactiveFormsComponent,
-    EmojiComponent,
+    // EmojiComponent,
     BubbleEditorComponent,
-    MentionComponent,
+    // MentionComponent,
     NoToolbarComponent,
     CustomToolbarComponent,
     FormatObjectComponent,
