@@ -1,9 +1,9 @@
 import { Component } from '@angular/core'
 
-import Quill from 'quill'
+// import Quill from 'quill/dist/quill'
 
-import ImageResize from 'quill-image-resize-module'
-Quill.register('modules/imageResize', ImageResize)
+// import ImageResize from 'quill-image-resize-module'
+// Quill.register('modules/imageResize', ImageResize)
 
 @Component({
   selector: 'app-formula',
@@ -18,13 +18,12 @@ export class FormulaComponent {
   constructor() {
     this.modules = {
       formula: true,
-      imageResize: {},
       syntax: true,
       toolbar: [['formula'], ['image'], ['code-block']]
     }
   }
 
-  addBindingCreated(quill: Quill) {
+  addBindingCreated(quill: any) {
     quill.keyboard.addBinding({
       key: 'b'
     }, (range, context) => {

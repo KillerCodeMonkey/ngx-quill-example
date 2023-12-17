@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 
-import Quill from 'quill'
-import 'quill-emoji/dist/quill-emoji.js'
+// import Quill from 'quill/dist/quill'
+// import 'quill-emoji/dist/quill-emoji.js'
 
 @Component({
   selector: 'app-emoji',
@@ -20,7 +20,7 @@ export class EmojiComponent {
     }
   }
 
-  addBindingCreated(quill: Quill) {
+  addBindingCreated(quill: any) {
     quill.keyboard.addBinding({
       key: 'b'
     }, (range, context) => {

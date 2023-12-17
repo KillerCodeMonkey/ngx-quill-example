@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { EditorChangeContent, EditorChangeSelection } from 'ngx-quill'
-import Quill from 'quill'
+import Quill from 'quill/dist/quill'
 
 @Component({
   selector: 'app-default',
