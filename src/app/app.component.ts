@@ -1,5 +1,12 @@
 import { Component } from '@angular/core'
 
+import Quill from 'quill'
+import Block from 'quill/blots/block'
+
+class NewBlock extends Block {}
+NewBlock.tagName = 'DIV'
+Quill.register(NewBlock, true)
+
 @Component({
   selector: 'app-root',
   styleUrls: ['./app.component.css'],
