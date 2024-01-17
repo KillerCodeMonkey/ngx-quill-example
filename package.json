@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
     "katex": "^0.16.9",
-    "ngx-quill": "25.0.0-quill2.2",
+    "ngx-quill": "25.0.0-quill2.3",
     "quill": "0.0.0-experimental-fdd181b39-20240117",
     "rxjs": "~7.8.1",
     "tslib": "^2.6.2",
