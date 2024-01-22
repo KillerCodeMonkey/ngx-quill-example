@@ -1,12 +1,13 @@
 import { Component } from '@angular/core'
 
-// import Quill from 'quill'
-// import Block from 'quill/blots/block'
+import Quill from 'quill'
+import Block from 'quill/blots/block'
 
-  // class NewBlock extends Block {
-  //    tagName = 'DIV'
-  // }
-  // Quill.register(NewBlock, true)
+class NewBlock extends Block {
+    
+}
+NewBlock.tagName = 'DIV'
+Quill.register(NewBlock, true)
 
 @Component({
   selector: 'app-root',
