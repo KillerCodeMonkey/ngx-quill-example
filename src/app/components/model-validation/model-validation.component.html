@@ -1,0 +1,40 @@
+<h3 id="modelValidation">NgModel/FormControl + Validation</h3>
+<ng-form #form="ngForm">
+  <p>
+    Form valid: {{ form.valid }}<br>
+    Model valid: {{ modelRef.valid }}<br>
+  </p>
+  <quill-editor name="editor" [(ngModel)]="model" [placeholder]="'my placeholder'" #modelRef="ngModel" [required]="true" [maxLength]="10"></quill-editor>
+
+  <h4>Material Quill</h4>
+
+  <mat-form-field appearance="fill">
+    <mat-quill name="matEditor" [(ngModel)]="model" #modelRef="ngModel" [required]="true" [maxLength]="10"></mat-quill>
+  </mat-form-field>
+</ng-form>
+
+@if (formGroup) {
+  <p>
+    FormGroup valid: {{ formGroup.valid }}<br>
+    FormControl valid: {{ formGroup.get('control')!.valid }}<br>
+  </p>
+  <form [formGroup]="formGroup">
+    MaxLength + required
+    <quill-editor name="editor" formControlName="control" [maxLength]="10" [required]="true"></quill-editor>
+
+    <h4>Material Quill</h4>
+
+    <p>FormControl valid: {{ formGroup.get('matControl')!.valid }}</p>
+    Required
+    <mat-form-field appearance="fill" floatLabel='always'>
+      <mat-label>Label mat-quill</mat-label>
+      <mat-quill matInput name="editor" formControlName="matControl" [required]="true"></mat-quill>
+      @if (formGroup.controls['matControl']!.hasError('required')) {
+        <mat-error>
+          Required
+        </mat-error>
+      }
+      <mat-hint>Just write :)</mat-hint>
+    </mat-form-field>
+  </form>
+}

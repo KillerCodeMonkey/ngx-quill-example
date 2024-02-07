@@ -1,0 +1,9 @@
+<h3 id="focusBlur">Default editor with height of 200px</h3>
+<p>focused: {{ focused }}, blurred: {{ blurred }}</p>
+<quill-editor [styles]="{height: '200px'}" (onFocus)="focus($event)" (onNativeFocus)="nativeFocus($event)" (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onNativeBlur)="nativeBlur($event)" (onEditorCreated)="created($event)"></quill-editor>
+
+<h4>Material Quill</h4>
+
+<mat-form-field appearance="fill">
+  <mat-quill [styles]="{height: '200px'}" (onFocus)="focus($event)" (onNativeFocus)="nativeFocus($event)" (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onNativeBlur)="nativeBlur($event)" (onEditorCreated)="created($event)"></mat-quill>
+</mat-form-field>

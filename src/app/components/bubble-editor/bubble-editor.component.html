@@ -1,0 +1,12 @@
+<h3 id="bubble">Bubble editor</h3>
+<button type="button" (click)="placeholder=placeholder + '!'">
+  Change placeholder
+</button>
+
+<quill-editor theme="bubble" [placeholder]="placeholder"></quill-editor>
+
+<h4>Material Quill</h4>
+
+<mat-form-field appearance="fill">
+  <mat-quill theme="bubble" [placeholder]="placeholder"></mat-quill>
+</mat-form-field>

@@ -1,0 +1,15 @@
+<h3 id="preserveWhitespace">Preserve Whitespace - use pre tag instead of div</h3>
+
+<quill-editor
+  [(ngModel)]="content"
+  [preserveWhitespace]="true">
+</quill-editor>
+
+<h4>Material Quill</h4>
+
+<mat-form-field appearance="fill">
+  <mat-quill
+    [(ngModel)]="content"
+    [preserveWhitespace]="true">
+  </mat-quill>
+</mat-form-field>

@@ -1,0 +1,12 @@
+<h3 id="mention">Mention plugin</h3>
+<p>Do not forget to add quill-mention css to your styles ;)</p>
+<pre><code>{{ content }}</code></pre>
+<quill-editor [(ngModel)]="content" [modules]="modules">
+</quill-editor>
+
+<h4>Material Quill</h4>
+
+<mat-form-field appearance="fill">
+  <mat-quill [(ngModel)]="matContent" [modules]="modules">
+  </mat-quill>
+</mat-form-field>

@@ -1,0 +1,47 @@
+<h3 id="reactiveForms">Reactive Forms and patch value</h3>
+
+<button type="button" (click)="hide=!(!!hide)">
+  hide / show
+</button>
+
+<button type="button" (click)="form.enabled ? form.disable() : form.enable()">
+    disable / enable
+</button>
+
+<button type="button" (click)="backgroundColor = backgroundColor ? '' : 'grey'">toggle
+  backgroundColor
+</button>
+
+<pre>{{ form.get('editor')!.value }}</pre>
+<button type="button" (click)="patchValue()">patchValue</button>
+<button type="button" (click)="setControl()">setControl</button>
+
+<form [formGroup]="form">
+  <quill-editor
+    #editor [style.display]="hide ? 'none' : 'block'"
+    [styles]="{ backgroundColor:backgroundColor }"
+    formControlName="editor">
+  </quill-editor>
+
+  <h4>Material Quill</h4>
+
+  <pre>{{ form.get('matEditor')!.value }}</pre>
+  <mat-form-field appearance="fill">
+    <mat-quill
+      #matEditor [style.display]="hide ? 'none' : 'block'"
+      [styles]="{ backgroundColor:backgroundColor }"
+      formControlName="matEditor">
+    </mat-quill>
+  </mat-form-field>
+</form>
+
+<h4>Complex reactive form</h4>
+<p><small>Group with an array with a group of controls</small></p>
+<form [formGroup]="complexForm">
+  <ng-container formArrayName="contents">
+    <ng-container *ngFor="let content of formArray().controls; let i=index;" [formGroupName]="i">
+      <quill-editor formControlName="body">
+      </quill-editor>
+    </ng-container>
+  </ng-container>
+</form>

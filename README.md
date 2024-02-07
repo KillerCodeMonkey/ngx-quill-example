@@ -1,27 +1,33 @@
-# EmptyAngular
+# ngx-quill-example
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
+The demo app for the usage of the [ngx-quill](https://github.com/KillerCodeMonkey/ngx-quill) module.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
-## Development server
+[Live Demo](https://killercodemonkey.github.io/ngx-quill-example/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Donate/Support
 
-## Code scaffolding
+If you like my work, feel free to support it. Donations to the project are always welcomed :)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+PayPal: [PayPal.Me/bengtler](https://paypal.me/bengtler)
 
-## Build
+<a href="https://www.buymeacoffee.com/bengtler" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+BTC Wallet Address:
+`3QVyr2tpRLBCw1kBQ59sTDraV6DTswq8Li`
 
-## Running unit tests
+ETH Wallet Address:
+`0x394d44f3b6e3a4f7b4d44991e7654b0cab4af68f`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+LTC Wallet Address:
+`MFif769WSZ1g7ReAzzDE7TJVqtkFpmoTyT`
 
-## Running end-to-end tests
+## Clone, Install and Run
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Clone the project then cd into project directory.
+2. Install dependencies with `npm install`.
+3. Run the development server with `ng serve`.
 
-## Further help
+## View Examples
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Navigate in your browser to http://localhost:4200 to view the examples. Each example is implemented as an Angular component.
