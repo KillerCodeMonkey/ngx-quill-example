@@ -21,10 +21,10 @@
     "@angular/platform-browser": "^17.2.1",
     "@angular/platform-browser-dynamic": "^17.2.1",
     "@angular/router": "^17.2.1",
+    "highlight.js": "^11.9.0",
     "katex": "^0.16.9",
-    "ngx-quill": "^25.0.2",
+    "ngx-quill": "^25.0.3",
     "quill": "2.0.0-rc.2",
-    "quill-mention": "^4.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "^0.14.4"

@@ -6,6 +6,8 @@ import { QuillEditorComponent } from 'ngx-quill'
 import Quill from 'quill'
 import { MatQuillModule } from '../mat-quill/mat-quill-module'
 
+import hljs from 'highlight.js'
+
 @Component({
   imports: [QuillEditorComponent, FormsModule, MatFormFieldModule, MatQuillModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -21,7 +23,7 @@ export class FormulaComponent {
   matContent = this.content
   constructor() {
     this.modules = {
-      syntax: true,
+      syntax: { hljs },
       toolbar: [['formula'], ['code-block']]
     }
   }

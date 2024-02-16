@@ -1,5 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, ViewChild } from '@angular/core'
-import 'quill-mention'
+// import 'quill-mention'
 
 import { QuillEditorComponent } from 'ngx-quill'
 import { FormsModule } from '@angular/forms'
