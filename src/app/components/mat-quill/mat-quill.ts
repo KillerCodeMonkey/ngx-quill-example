@@ -16,19 +16,11 @@ const SELECTOR = 'mat-quill'
   exportAs: 'matQuill',
   template: `
     @if (toolbarPosition !== 'top') {
-      @if (preserve) {
-        <pre quill-editor-element></pre>
-      } @else {
-        <div quill-editor-element></div>
-      }
+      <div quill-editor-element></div>
     }
     <ng-content select="[quill-editor-toolbar]"></ng-content>
     @if (toolbarPosition === 'top') {
-      @if (preserve) {
-        <pre quill-editor-element></pre>
-      } @else {
-        <div quill-editor-element></div>
-      }
+      <div quill-editor-element></div>
     }
     <ng-content></ng-content>
   `,

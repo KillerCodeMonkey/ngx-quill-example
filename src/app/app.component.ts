@@ -17,7 +17,6 @@ import { MentionComponent } from './components/mention/mention.component';
 import { ModelValidation } from './components/model-validation/model-validation.component';
 import { NoSanitizeHtmlComponent } from './components/no-sanitize-html/no-sanitize-html.component';
 import { NoToolbarComponent } from './components/no-toolbar/no-toolbar.component';
-import { PreserveWhitespaceComponent } from './components/preserve-whitespace/preserve-whitespace.component';
 import { QuillApiEmbedComponent } from './components/quill-api-embed/quill-api-embed.component';
 import { ReactiveFormsComponent } from './components/reactive-forms/reactive-forms.component';
 import { SanitizeHtmlComponent } from './components/sanitize-html/sanitize-html.component';
@@ -27,7 +26,7 @@ import { ViewHTMLComponent } from './components/view-html/view-html.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, QuillEditorComponent, BubbleEditorComponent, ActivateRtlComponent, ChildModule, CustomToolbarComponent, DefaultComponent, EmojiComponent, FormatHtmlComponent, FormatJsonComponent, FormatObjectComponent, FormatTextComponent, FormulaComponent, MatQuillModule, MentionComponent, ModelValidation, NoSanitizeHtmlComponent, NoToolbarComponent, PreserveWhitespaceComponent, QuillApiEmbedComponent, ReactiveFormsComponent, SanitizeHtmlComponent, ViewComponent, ViewHTMLComponent],
+  imports: [RouterOutlet, QuillEditorComponent, BubbleEditorComponent, ActivateRtlComponent, ChildModule, CustomToolbarComponent, DefaultComponent, EmojiComponent, FormatHtmlComponent, FormatJsonComponent, FormatObjectComponent, FormatTextComponent, FormulaComponent, MatQuillModule, MentionComponent, ModelValidation, NoSanitizeHtmlComponent, NoToolbarComponent, QuillApiEmbedComponent, ReactiveFormsComponent, SanitizeHtmlComponent, ViewComponent, ViewHTMLComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

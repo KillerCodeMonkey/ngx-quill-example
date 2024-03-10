@@ -23,7 +23,7 @@
     "@angular/router": "^17.2.1",
     "highlight.js": "^11.9.0",
     "katex": "^0.16.9",
-    "ngx-quill": "^25.0.3",
+    "ngx-quill": "^25.1.1",
     "quill": "2.0.0-rc.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
