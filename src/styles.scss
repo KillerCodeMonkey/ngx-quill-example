@@ -1,4 +1,3 @@
-@use '@angular/material' as mat;
 
 /*
  * QUILL - SAMPLE OVERRIDES
@@ -45,37 +44,6 @@ quill-editor {
   font-family: "Roboto";
 }
 
-/*
- * ANGULAR MATERIAL
- */
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// **Be sure that you only ever include this mixin once!**
-@include mat.core();
-
-$my-primary: mat.define-palette(mat.$indigo-palette, 500);
-$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-
-// The "warn" palette is optional and defaults to red if not specified.
-$my-warn: mat.define-palette(mat.$red-palette);
-
-$my-theme: mat.define-light-theme((
- color: (
-   primary: $my-primary,
-   accent: $my-accent,
-   warn: $my-warn,
- ),
- typography: mat.define-typography-config(),
- density: 0,
-));
-
-@include mat.all-component-themes($my-theme);
-
-/*
- * COMPONENTS
- */
-
 // make major example component children full width
 app-root > div > *,
 app-root > div > * > form,
@@ -96,8 +64,7 @@ app-root > div > * {
   h4,
   > div,
   > .ql-container,
-  quill-editor,
-  .mat-form-field {
+  quill-editor {
     flex: 1;
   }
 
@@ -123,48 +90,5 @@ app-root > div > * {
     color: #363030;
     padding: 1.5rem;
     white-space: normal;
-  }
-}
-
-/*
- * Material Quill & MatFormField
- * - demo overrides
- */
-
-.mat-form-field {
-
-  // Since the default quill styles already provide padding
-  &-appearance-fill .mat-form-field {
-    &-flex {
-      padding: 0 !important;
-    }
-
-    &-infix {
-      border-top: 0;
-      padding: 0;
-    }
-  }
-
-  .ql-container {
-    // set quill caret to match current Angular Material theme
-    caret-color: mat.get-color-from-palette($my-primary, text);
-
-    // Remove redundant quill snow-theme border
-    &.ql-snow {
-      border: none;
-    }
-
-    // Remove all default quill focus indicators
-    .ql-editor {
-      &:focus {
-        border: none !important;
-        box-shadow: none !important;
-      }
-    }
-  }
-
-  // make sure any quill tooltips, bubbles, or popups aren't occluded
-  .ql-tooltip {
-    z-index: 1;
   }
 }

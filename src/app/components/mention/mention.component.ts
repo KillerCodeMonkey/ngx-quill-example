@@ -3,11 +3,9 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component, ViewChild } from '@angular/core'
 
 import { QuillEditorComponent } from 'ngx-quill'
 import { FormsModule } from '@angular/forms'
-import { MatFormFieldModule } from '@angular/material/form-field'
-import { MatQuillModule } from '../mat-quill/mat-quill-module'
 
 @Component({
-  imports: [QuillEditorComponent, FormsModule, MatFormFieldModule, MatQuillModule],
+  imports: [QuillEditorComponent, FormsModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   selector: 'app-mention',
   standalone: true,

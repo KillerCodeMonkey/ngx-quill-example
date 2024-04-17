@@ -1,11 +1,9 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { MatFormFieldModule } from '@angular/material/form-field'
 import { QuillEditorComponent } from 'ngx-quill'
-import { MatQuillModule } from '../mat-quill/mat-quill-module'
 
 @Component({
-  imports: [QuillEditorComponent, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatQuillModule],
+  imports: [QuillEditorComponent, FormsModule, ReactiveFormsModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   selector: 'app-model-validation',
   standalone: true,

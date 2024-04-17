@@ -10,17 +10,9 @@
   Presentation in HTML
   <div class="ql-container ql-snow" style="border-width: 0;">
     <div style="width: 100%" class="ql-editor" [innerHTML]="byPassHTML(form.get('html')!.value)"></div>
-    Material Quill
-    <div style="width: 100%" class="ql-editor" [innerHTML]="byPassHTML(form.get('matQuillHtml')!.value)"></div>
   </div>
 </div>
 
 <form [formGroup]="form">
   <quill-editor format="html" formControlName="html"></quill-editor>
-
-  <h4>Material Quill</h4>
-
-  <mat-form-field appearance="fill">
-    <mat-quill format="html" formControlName="matQuillHtml"></mat-quill>
-  </mat-form-field>
 </form>

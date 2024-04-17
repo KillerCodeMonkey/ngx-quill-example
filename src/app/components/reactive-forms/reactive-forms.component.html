@@ -22,17 +22,6 @@
     [styles]="{ backgroundColor:backgroundColor }"
     formControlName="editor">
   </quill-editor>
-
-  <h4>Material Quill</h4>
-
-  <pre>{{ form.get('matEditor')!.value }}</pre>
-  <mat-form-field appearance="fill">
-    <mat-quill
-      #matEditor [style.display]="hide ? 'none' : 'block'"
-      [styles]="{ backgroundColor:backgroundColor }"
-      formControlName="matEditor">
-    </mat-quill>
-  </mat-form-field>
 </form>
 
 <h4>Complex reactive form</h4>

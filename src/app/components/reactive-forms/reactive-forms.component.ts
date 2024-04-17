@@ -2,13 +2,10 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, ViewChild } from '@angular/c
 import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms'
 import { ContentChange, QuillEditorComponent } from 'ngx-quill'
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators'
-import { MatQuill } from '../mat-quill/mat-quill'
-import { MatQuillModule } from '../mat-quill/mat-quill-module'
-import { MatFormFieldModule } from '@angular/material/form-field'
 import { CommonModule } from '@angular/common'
 
 @Component({
-  imports: [QuillEditorComponent, ReactiveFormsModule, MatQuillModule, MatFormFieldModule, CommonModule],
+  imports: [QuillEditorComponent, ReactiveFormsModule, CommonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   selector: 'app-reactive-forms',
   standalone: true,
@@ -22,9 +19,6 @@ export class ReactiveFormsComponent implements OnInit {
   @ViewChild('editor', {
     static: true
   }) editor: QuillEditorComponent | undefined
-  @ViewChild('matEditor', {
-    static: true
-  }) matEditor: MatQuill | undefined
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({
@@ -56,17 +50,6 @@ export class ReactiveFormsComponent implements OnInit {
       })
 
     this.editor!
-      .onContentChanged
-      .pipe(
-        debounceTime(400),
-        distinctUntilChanged()
-      )
-      .subscribe((data: ContentChange) => {
-        // tslint:disable-next-line:no-console
-        console.log('view child + directly subscription', data)
-      })
-
-    this.matEditor!
       .onContentChanged
       .pipe(
         debounceTime(400),

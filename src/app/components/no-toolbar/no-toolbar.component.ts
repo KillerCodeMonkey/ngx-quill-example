@@ -1,11 +1,9 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core'
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms'
-import { MatFormFieldModule } from '@angular/material/form-field'
 import { ContentChange, QuillEditorComponent, SelectionChange } from 'ngx-quill'
-import { MatQuillModule } from '../mat-quill/mat-quill-module'
 
 @Component({
-  imports: [QuillEditorComponent, ReactiveFormsModule, MatFormFieldModule, MatQuillModule, ReactiveFormsModule],
+  imports: [QuillEditorComponent, ReactiveFormsModule, ReactiveFormsModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   selector: 'app-no-toolbar',
   standalone: true,

@@ -12,7 +12,6 @@ import { FormatJsonComponent } from './components/format-json/format-json.compon
 import { FormatObjectComponent } from './components/format-object/format-object.component';
 import { FormatTextComponent } from './components/format-text/format-text.component';
 import { FormulaComponent } from './components/formula/formula.component';
-import { MatQuillModule } from './components/mat-quill/mat-quill-module';
 import { MentionComponent } from './components/mention/mention.component';
 import { ModelValidation } from './components/model-validation/model-validation.component';
 import { NoSanitizeHtmlComponent } from './components/no-sanitize-html/no-sanitize-html.component';
@@ -26,7 +25,7 @@ import { ViewHTMLComponent } from './components/view-html/view-html.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, QuillEditorComponent, BubbleEditorComponent, ActivateRtlComponent, ChildModule, CustomToolbarComponent, DefaultComponent, EmojiComponent, FormatHtmlComponent, FormatJsonComponent, FormatObjectComponent, FormatTextComponent, FormulaComponent, MatQuillModule, MentionComponent, ModelValidation, NoSanitizeHtmlComponent, NoToolbarComponent, QuillApiEmbedComponent, ReactiveFormsComponent, SanitizeHtmlComponent, ViewComponent, ViewHTMLComponent],
+  imports: [RouterOutlet, QuillEditorComponent, BubbleEditorComponent, ActivateRtlComponent, ChildModule, CustomToolbarComponent, DefaultComponent, EmojiComponent, FormatHtmlComponent, FormatJsonComponent, FormatObjectComponent, FormatTextComponent, FormulaComponent, MentionComponent, ModelValidation, NoSanitizeHtmlComponent, NoToolbarComponent, QuillApiEmbedComponent, ReactiveFormsComponent, SanitizeHtmlComponent, ViewComponent, ViewHTMLComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

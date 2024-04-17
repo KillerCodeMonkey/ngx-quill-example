@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core'
-import { MatFormFieldModule } from '@angular/material/form-field'
 
 import { QuillModule } from 'ngx-quill'
-import { MatQuillModule } from '../mat-quill/mat-quill-module'
 import { ChildComponent } from './child.component'
 
 @NgModule({
@@ -10,7 +8,7 @@ import { ChildComponent } from './child.component'
     ChildComponent
   ],
   exports: [ChildComponent],
-  imports: [QuillModule, MatQuillModule, MatFormFieldModule],
+  imports: [QuillModule],
   providers: []
 })
 export class ChildModule { }

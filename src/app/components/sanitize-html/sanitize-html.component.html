@@ -2,9 +2,3 @@
 <button (click)="dangerousModel = dangerousHtml">Set dangerous HTML</button>
 <pre><code>{{ dangerousHtml }}</code></pre>
 <quill-editor [(ngModel)]="dangerousModel" [sanitize]="true"></quill-editor>
-
-<h4>Material Quill</h4>
-
-<mat-form-field appearance="fill">
-  <mat-quill [(ngModel)]="dangerousModel" [sanitize]="true"></mat-quill>
-</mat-form-field>

@@ -2,11 +2,9 @@ import { Component } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { DomSanitizer } from '@angular/platform-browser'
 import { QuillEditorComponent } from 'ngx-quill'
-import { MatQuillModule } from '../mat-quill/mat-quill-module'
-import { MatFormFieldModule } from '@angular/material/form-field'
 
 @Component({
-  imports: [QuillEditorComponent, FormsModule, MatQuillModule, MatFormFieldModule, ReactiveFormsModule],
+  imports: [QuillEditorComponent, FormsModule, ReactiveFormsModule],
   selector: 'app-format-html',
   standalone: true,
   templateUrl: './format-html.component.html'

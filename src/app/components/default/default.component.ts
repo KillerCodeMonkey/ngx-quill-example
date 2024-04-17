@@ -1,11 +1,9 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core'
 import { EditorChangeContent, EditorChangeSelection, QuillEditorComponent } from 'ngx-quill'
 import Quill from 'quill'
-import { MatQuillModule } from '../mat-quill/mat-quill-module'
-import { MatFormFieldModule } from '@angular/material/form-field'
 
 @Component({
-  imports: [QuillEditorComponent, MatQuillModule, MatFormFieldModule],
+  imports: [QuillEditorComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   selector: 'app-default',
   standalone: true,
