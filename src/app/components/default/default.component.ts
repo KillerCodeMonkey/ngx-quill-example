@@ -1,6 +1,10 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core'
+import { CUSTOM_ELEMENTS_SCHEMA, Component, ViewChild } from '@angular/core'
 import { EditorChangeContent, EditorChangeSelection, QuillEditorComponent } from 'ngx-quill'
 import Quill from 'quill'
+import Block from 'quill/blots/block';
+
+Block.tagName = "DIV";
+Quill.register(Block, true);
 
 @Component({
   imports: [QuillEditorComponent],
