@@ -23,6 +23,7 @@
     "katex": "^0.16.10",
     "ngx-quill": "^26.0.0",
     "quill": "^2.0.2",
+    "quill-image-resizor": "1.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "^0.14.6"

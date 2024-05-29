@@ -4,6 +4,9 @@ import { QuillEditorComponent } from 'ngx-quill'
 
 import Quill from 'quill'
 
+import ImageResizor from 'quill-image-resizor'
+Quill.register('modules/imageResizor', ImageResizor)
+
 import hljs from 'highlight.js'
 
 @Component({
@@ -22,7 +25,8 @@ export class FormulaComponent {
   constructor() {
     this.modules = {
       syntax: { hljs },
-      toolbar: [['formula'], ['code-block']]
+      imageResizor: {},
+      toolbar: [['formula'], ['code-block'], ['image']]
     }
   }
 
