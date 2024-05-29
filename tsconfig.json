@@ -23,8 +23,7 @@
     "lib": [
       "ES2022",
       "dom"
-    ],
-    "typeRoots": ["./src/typings"]
+    ]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
