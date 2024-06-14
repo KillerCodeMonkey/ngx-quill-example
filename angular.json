@@ -34,6 +34,7 @@
               "./node_modules/quill/dist/quill.bubble.css",
               "./node_modules/quill/dist/quill.snow.css",
               "./node_modules/katex/dist/katex.min.css",
+              "./node_modules/quill-mention/dist/quill.mention.css",
               "src/styles.scss"
             ],
             "scripts": [

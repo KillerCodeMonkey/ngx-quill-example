@@ -1,5 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, ViewChild } from '@angular/core'
-// import 'quill-mention'
+import "quill-mention/autoregister";
 
 import { QuillEditorComponent } from 'ngx-quill'
 import { FormsModule } from '@angular/forms'
@@ -45,6 +45,6 @@ export class MentionComponent {
         }
       }
     },
-    toolbar: []
+    toolbar: false
   }
 }
