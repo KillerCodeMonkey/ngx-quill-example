@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.0.0",
-    "@angular/cli": "^18.0.0",
+    "@angular/cli": "^18.0.5",
     "@angular/compiler-cli": "^18.0.0",
     "@types/jasmine": "~5.1.4",
     "gh-pages": "^6.1.1",
