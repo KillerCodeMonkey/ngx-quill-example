@@ -15,5 +15,10 @@ export class ViewComponent {
     { insert: '\n' }
   ]
 
-  dangerousHtml = `<p><img src="https://google.com/" onerror="alert('Sanitizing not working :(')">Incorrect image src should not open alert</p>`
+  dangerousHtml = `<p><img src="https://google.com/" onerror="alert('Sanitizing not working :(')">Incorrect image src should not open alert</p>
+  <p>empty lines:</p>
+  <p><p/>
+  <p><p/>
+  <p><p/>
+  <p>END</p>`
 }
