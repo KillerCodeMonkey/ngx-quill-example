@@ -23,7 +23,6 @@ export class ReactiveFormsComponent implements OnInit {
   constructor(fb: FormBuilder) {
     this.form = fb.group({
       editor: ['<ol><li>test</li><li>123</li></ol>'],
-      matEditor: ['<ol><li>test</li><li>123</li></ol>']
     })
     this.complexForm = fb.group({
       contents: new FormArray([
@@ -63,12 +62,10 @@ export class ReactiveFormsComponent implements OnInit {
 
   setControl() {
     this.form.setControl('editor', new FormControl('test - new Control'))
-    this.form.setControl('matEditor', new FormControl('test - new Control'))
   }
 
   patchValue() {
-    this.form.get('editor')!.patchValue(`${this.form.get('editor')!.value} patched!`)
-    this.form.get('matEditor')!.patchValue(`${this.form.get('matEditor')!.value} patched!`)
+    this.form.get('editor')!.patchValue(`${this.form.get('editor')!.value} <span style="background-color: rgb(255, 194, 102); color: rgb(230, 0, 0);">patched!</span>`)
   }
 
 }
