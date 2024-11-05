@@ -24,7 +24,7 @@
     "ngx-quill": "^26.0.8",
     "quill": "^2.0.2",
     "quill-image-resizor": "1.3.0",
-    "quill-mention": "^6.0.1",
+    "quill-mention": "^6.0.2",
     "rxjs": "~7.8.1",
     "tslib": "^2.3.0",
     "zone.js": "^0.14.10"
