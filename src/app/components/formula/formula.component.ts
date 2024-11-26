@@ -5,6 +5,8 @@ import { QuillEditorComponent, QuillModules } from 'ngx-quill'
 import Quill from 'quill'
 
 import ImageResizor from 'quill-image-resizor'
+// If Quill does not come from window-object -> set find method to correct instance
+ImageResizor.QuillFind = Quill.find
 Quill.register('modules/imageResizor', ImageResizor)
 
 import hljs from 'highlight.js'
@@ -37,7 +39,7 @@ export class FormulaComponent {
           }
 },
       } },
-      
+
     }
   }
 
