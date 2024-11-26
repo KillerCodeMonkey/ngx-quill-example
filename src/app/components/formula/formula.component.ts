@@ -25,7 +25,19 @@ export class FormulaComponent {
     this.modules = {
       syntax: { hljs },
       imageResizor: {},
-      toolbar: [['formula'], ['code-block'], ['image']]
+      toolbar: { container: [['formula'], ['code-block'], ['image'], [{ custom : 'asdf'}]], handlers: {
+        'custom-dropdown': function (value: string) {
+          if (value) {
+            //@ts-expect-error
+            const cursorPosition = this.quill.getSelection().index;
+            //@ts-expect-error
+            this.quill.insertText(cursorPosition, value);
+            //@ts-expect-error
+            this.quill.setSelection(cursorPosition + value.length); // Place cursor after inserted text
+          }
+},
+      } },
+      
     }
   }
 

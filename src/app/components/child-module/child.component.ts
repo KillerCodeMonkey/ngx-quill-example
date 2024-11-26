@@ -3,6 +3,7 @@ import { Component, Inject } from '@angular/core'
 import { QUILL_CONFIG_TOKEN, QuillConfig } from 'ngx-quill'
 
 @Component({
+  standalone: false,
   selector: 'app-child',
   templateUrl: './child.component.html'
 })

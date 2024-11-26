@@ -1,0 +1,19 @@
+// :host ::ng-deep .ql-editor.ql-blank::before {
+//   content: attr(data-placeholder);
+//   color: red !important;
+// }
+
+// /* Target all toolbar icons */
+// :host ::ng-deep .ql-stroke,
+// :host ::ng-deep .ql-snow .ql-fill,
+// :host ::ng-deep .ql-snow .ql-picker-label,
+// :host ::ng-deep .ql-snow .ql-picker-item {
+//   color: red !important;
+//   fill: red !important; /* Change this to your desired icon color */
+//   stroke: red !important; /* Some icons use stroke instead of fill */
+// }
+
+// .ql-editor.ql-blank::before {
+//   content: attr(data-placeholder);
+//   color: red !important;
+// }
