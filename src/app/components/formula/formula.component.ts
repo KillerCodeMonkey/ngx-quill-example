@@ -6,7 +6,7 @@ import Quill from 'quill'
 
 import ImageResizor from 'quill-image-resizor'
 // If Quill does not come from window-object -> set find method to correct instance
-ImageResizor.QuillFind = Quill.find
+ImageResizor.Quill = Quill
 Quill.register('modules/imageResizor', ImageResizor)
 
 import hljs from 'highlight.js'
@@ -27,19 +27,7 @@ export class FormulaComponent {
     this.modules = {
       syntax: { hljs },
       imageResizor: {},
-      toolbar: { container: [['formula'], ['code-block'], ['image'], [{ custom : 'asdf'}]], handlers: {
-        'custom-dropdown': function (value: string) {
-          if (value) {
-            //@ts-expect-error
-            const cursorPosition = this.quill.getSelection().index;
-            //@ts-expect-error
-            this.quill.insertText(cursorPosition, value);
-            //@ts-expect-error
-            this.quill.setSelection(cursorPosition + value.length); // Place cursor after inserted text
-          }
-},
-      } },
-
+      toolbar: { container: [['formula'], ['code-block'], ['image']] }
     }
   }
 

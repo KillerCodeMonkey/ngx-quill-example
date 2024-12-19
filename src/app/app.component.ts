@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { QuillEditorComponent } from 'ngx-quill';
 import { BubbleEditorComponent } from './components/bubble-editor/bubble-editor.component';
 import { ActivateRtlComponent } from './components/activate-rtl/activate-rtl.component';
 import { ChildModule } from './components/child-module/child-module';
 import { CustomToolbarComponent } from './components/custom-toolbar/custom-toolbar.component';
 import { DefaultComponent } from './components/default/default.component';
-import { EmojiComponent } from './components/emoji/emoji.component';
 import { FormatHtmlComponent } from './components/format-html/format-html.component';
 import { FormatJsonComponent } from './components/format-json/format-json.component';
 import { FormatObjectComponent } from './components/format-object/format-object.component';
@@ -25,7 +22,7 @@ import { ViewHTMLComponent } from './components/view-html/view-html.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, QuillEditorComponent, BubbleEditorComponent, ActivateRtlComponent, ChildModule, CustomToolbarComponent, DefaultComponent, EmojiComponent, FormatHtmlComponent, FormatJsonComponent, FormatObjectComponent, FormatTextComponent, FormulaComponent, MentionComponent, ModelValidation, NoSanitizeHtmlComponent, NoToolbarComponent, QuillApiEmbedComponent, ReactiveFormsComponent, SanitizeHtmlComponent, ViewComponent, ViewHTMLComponent],
+  imports: [BubbleEditorComponent, ActivateRtlComponent, ChildModule, CustomToolbarComponent, DefaultComponent, FormatHtmlComponent, FormatJsonComponent, FormatObjectComponent, FormatTextComponent, FormulaComponent, MentionComponent, ModelValidation, NoSanitizeHtmlComponent, NoToolbarComponent, QuillApiEmbedComponent, ReactiveFormsComponent, SanitizeHtmlComponent, ViewComponent, ViewHTMLComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
