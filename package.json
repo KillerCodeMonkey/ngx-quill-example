@@ -21,7 +21,7 @@
     "@angular/router": "^19.2.13",
     "highlight.js": "^11.11.1",
     "katex": "^0.16.22",
-    "ngx-quill": "^27.0.2",
+    "ngx-quill": "^27.1.2",
     "quill": "^2.0.3",
     "quill-image-resizor": "^2.1.1",
     "quill-mention": "^6.1.1",
