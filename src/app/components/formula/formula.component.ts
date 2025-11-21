@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core'
 import { FormsModule } from '@angular/forms'
-import { QuillEditorComponent, QuillModules } from 'ngx-quill'
+import { QuillEditorComponent } from 'ngx-quill'
+import { QuillModules } from 'ngx-quill/config'
 
 import Quill from 'quill'
 
