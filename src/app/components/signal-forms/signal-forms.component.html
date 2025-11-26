@@ -1,0 +1,14 @@
+<h3 id="reactiveForms">Signal Forms [currently not working correctly]</h3>
+
+
+<pre>{{ form.editor().value() }}</pre>
+<button type="button" (click)="patchValue()">update</button>
+<button type="button" (click)="setControl()">set</button>
+
+<form>
+  <quill-editor
+    #editor [style.display]="hide ? 'none' : 'block'"
+    [styles]="{ backgroundColor:backgroundColor }"
+    [field]="form.editor">
+  </quill-editor>
+</form>

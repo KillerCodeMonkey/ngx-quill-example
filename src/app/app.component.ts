@@ -18,11 +18,12 @@ import { ReactiveFormsComponent } from './components/reactive-forms/reactive-for
 import { SanitizeHtmlComponent } from './components/sanitize-html/sanitize-html.component';
 import { ViewComponent } from './components/view/view.component';
 import { ViewHTMLComponent } from './components/view-html/view-html.component';
+import { SignalFormsComponent } from './components/signal-forms/signal-forms.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [BubbleEditorComponent, ActivateRtlComponent, ChildModule, CustomToolbarComponent, DefaultComponent, FormatHtmlComponent, FormatJsonComponent, FormatObjectComponent, FormatTextComponent, FormulaComponent, MentionComponent, ModelValidation, NoSanitizeHtmlComponent, NoToolbarComponent, QuillApiEmbedComponent, ReactiveFormsComponent, SanitizeHtmlComponent, ViewComponent, ViewHTMLComponent],
+  imports: [BubbleEditorComponent, ActivateRtlComponent, ChildModule, CustomToolbarComponent, DefaultComponent, FormatHtmlComponent, FormatJsonComponent, FormatObjectComponent, FormatTextComponent, FormulaComponent, MentionComponent, ModelValidation, NoSanitizeHtmlComponent, NoToolbarComponent, QuillApiEmbedComponent, ReactiveFormsComponent, SanitizeHtmlComponent, ViewComponent, ViewHTMLComponent, SignalFormsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
