@@ -1,14 +1,25 @@
-<h3 id="reactiveForms">Signal Forms [currently not working correctly]</h3>
+<h3 id="signalForms">Signal Forms</h3>
 
 
 <pre>{{ form.editor().value() }}</pre>
 <button type="button" (click)="patchValue()">update</button>
 <button type="button" (click)="setControl()">set</button>
 
-<form>
-  <quill-editor
-    #editor [style.display]="hide ? 'none' : 'block'"
-    [styles]="{ backgroundColor:backgroundColor }"
-    [field]="form.editor">
-  </quill-editor>
-</form>
+
+<h4>Signal Forms used with ngModel</h4>
+
+<quill-editor
+  #editor [style.display]="hide ? 'none' : 'block'"
+  [styles]="{ backgroundColor:backgroundColor }"
+  [ngModel]="form.editor().value()"
+  (ngModelChange)="form.editor().value.set($event)">
+</quill-editor>
+
+<h4>Signal Forms used with field [currently not working correctly]</h4>
+
+<quill-editor
+  #editor [style.display]="hide ? 'none' : 'block'"
+  [styles]="{ backgroundColor:backgroundColor }"
+  [field]="form.editor">
+</quill-editor>
+
