@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core'
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@angular/core'
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms'
 import { ContentChange, QuillEditorComponent, SelectionChange } from 'ngx-quill'
 
@@ -14,11 +14,15 @@ export class NoToolbarComponent {
   isRequired = false
   form: FormGroup
 
+  cdr = inject(ChangeDetectorRef)
+
   constructor(fb: FormBuilder) {
     this.form = fb.group({
       matTitle: [''],
       title: ['']
     })
+
+    this.form.get('title')!.valueChanges.subscribe(() => this.cdr.detectChanges())
   }
 
   logChange($event: ContentChange | any) {

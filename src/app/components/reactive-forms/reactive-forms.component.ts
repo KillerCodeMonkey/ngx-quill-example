@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, ViewChild } from '@angular/core'
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectorRef, Component, OnInit, ViewChild, inject } from '@angular/core'
 import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms'
 import { ContentChange, QuillEditorComponent } from 'ngx-quill'
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators'
@@ -19,6 +19,8 @@ export class ReactiveFormsComponent implements OnInit {
   @ViewChild('editor', {
     static: true
   }) editor: QuillEditorComponent | undefined
+
+  cdr = inject(ChangeDetectorRef)
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({
@@ -55,6 +57,7 @@ export class ReactiveFormsComponent implements OnInit {
         distinctUntilChanged()
       )
       .subscribe((data: ContentChange) => {
+        this.cdr.detectChanges()
         // tslint:disable-next-line:no-console
         console.log('view child + directly subscription', data)
       })
