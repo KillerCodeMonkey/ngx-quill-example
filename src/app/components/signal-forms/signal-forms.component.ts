@@ -1,5 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, ViewChild, signal } from '@angular/core'
-import { Field, form, required } from '@angular/forms/signals'
+import { form, FormField, required } from '@angular/forms/signals'
 import { ContentChange, QuillEditorComponent } from 'ngx-quill'
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators'
 import { CommonModule } from '@angular/common'
@@ -7,7 +7,7 @@ import {takeUntilDestroyed, toObservable} from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms'
 
 @Component({
-  imports: [QuillEditorComponent, CommonModule, Field, FormsModule],
+  imports: [QuillEditorComponent, CommonModule, FormField, FormsModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   selector: 'app-signal-forms',
   standalone: true,

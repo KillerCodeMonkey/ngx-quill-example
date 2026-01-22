@@ -6,18 +6,17 @@
     "start": "ng serve",
     "build": "ng build",
     "build:deploy": "ng build --configuration production --base-href /ngx-quill-example/ && gh-pages -d ./dist/ngx-quill-example/browser",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "watch": "ng build --watch --configuration development"
   },
   "private": true,
   "dependencies": {
-    "@angular/common": "^21.0.2",
-    "@angular/compiler": "^21.0.2",
-    "@angular/core": "^21.0.2",
-    "@angular/forms": "^21.0.2",
-    "@angular/platform-browser": "^21.0.2",
+    "@angular/common": "^21.1.1",
+    "@angular/compiler": "^21.1.1",
+    "@angular/core": "^21.1.1",
+    "@angular/forms": "^21.1.1",
+    "@angular/platform-browser": "^21.1.1",
     "highlight.js": "^11.11.1",
-    "katex": "^0.16.25",
+    "katex": "^0.16.27",
     "ngx-quill": "^30.0.1",
     "quill": "^2.0.3",
     "quill-image-resizor": "^3.0.1",
@@ -26,17 +25,16 @@
     "tslib": "^2.8.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^21.0.2",
-    "@angular/cli": "^21.0.2",
-    "@angular/compiler-cli": "^21.0.2",
-    "@types/jasmine": "~5.1.8",
+    "@angular-devkit/build-angular": "^21.1.1",
+    "@angular/cli": "^21.1.1",
+    "@angular/compiler-cli": "^21.1.1",
     "gh-pages": "^6.3.0",
     "typescript": "~5.9.3"
   },
   "engines": {
-    "node": "22.17.1"
+    "node": "24.11.1"
   },
   "volta": {
-    "node": "22.17.1"
+    "node": "24.11.1"
   }
 }
