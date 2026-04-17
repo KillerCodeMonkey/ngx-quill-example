@@ -1,25 +1,25 @@
 <h3 id="signalForms">Signal Forms</h3>
 
 
-<pre>{{ form.editor().value() }}</pre>
+<pre>value: {{ form.editor().value() }}</pre>
+<pre>error number: {{ form.editor().errors().length }}</pre>
+<pre>dirty: {{ form.editor().dirty() }}</pre>
+<pre>touched: {{ form.editor().touched() }}</pre>
+<pre>valid: {{ form.editor().valid() }}</pre>
+
+@let ro = readonly();
+@let dis = disabled();
+
 <button type="button" (click)="patchValue()">update</button>
 <button type="button" (click)="setControl()">set</button>
+<button type="button" (click)="readonly.set(!ro)">readonly</button>
+<button type="button" (click)="disabled.set(!dis)">disable</button>
 
 
-<h4>Signal Forms used with ngModel</h4>
-
-<quill-editor
-  #editor [style.display]="hide ? 'none' : 'block'"
-  [styles]="{ backgroundColor:backgroundColor }"
-  [ngModel]="form.editor().value()"
-  (ngModelChange)="form.editor().value.set($event)">
-</quill-editor>
-
-<h4>Signal Forms used with field [currently not working correctly]</h4>
-
-<quill-editor
-  #editor [style.display]="hide ? 'none' : 'block'"
+<h4>Signal Forms used with quill-editor-field</h4>
+<quill-editor-field
+  #quillField
   [styles]="{ backgroundColor:backgroundColor }"
   [formField]="form.editor">
-</quill-editor>
+</quill-editor-field>
 

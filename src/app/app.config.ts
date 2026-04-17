@@ -1,4 +1,4 @@
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
 
 import { provideQuillConfig } from 'ngx-quill'
 
@@ -6,7 +6,9 @@ import { provideQuillConfig } from 'ngx-quill'
 import Counter from './counter'
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideQuillConfig({
+  providers: [
+    provideZonelessChangeDetection(),
+    provideQuillConfig({
     customModules: [{
       implementation: Counter,
       path: 'modules/counter'

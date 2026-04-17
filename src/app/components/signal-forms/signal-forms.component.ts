@@ -1,29 +1,37 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, ViewChild, signal } from '@angular/core'
-import { form, FormField, required } from '@angular/forms/signals'
-import { ContentChange, QuillEditorComponent } from 'ngx-quill'
+import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, ViewChild, signal, viewChild } from '@angular/core'
+import { disabled, form, FormField, readonly, validate } from '@angular/forms/signals'
+
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators'
 import { CommonModule } from '@angular/common'
 import {takeUntilDestroyed, toObservable} from '@angular/core/rxjs-interop';
-import { FormsModule } from '@angular/forms'
+import { QuillEditorFieldComponent } from 'ngx-quill';
+
 
 @Component({
-  imports: [QuillEditorComponent, CommonModule, FormField, FormsModule],
+  imports: [CommonModule, FormField, QuillEditorFieldComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   selector: 'app-signal-forms',
   standalone: true,
   templateUrl: './signal-forms.component.html'
 })
-export class SignalFormsComponent implements OnInit {
-  hide = false
+export class SignalFormsComponent {
+  readonly quillfield = viewChild<QuillEditorFieldComponent>('quillField')
+
+  disabled = signal(false)
+  readonly = signal(false)
   editorField = signal({ editor: '' })
   form = form(this.editorField, p => {
     // Add a synchronous required validator to 'editorField'.
-    required(p.editor, { message: 'Editor is required' });
+    validate(p.editor, () => {
+      return this.quillfield()?.validate({
+        required: true,
+        minLength: 5
+      }) || null
+    })
+    disabled(p.editor, () => this.disabled())
+    readonly(p.editor, () => this.readonly())
   })
   backgroundColor = ''
-  @ViewChild('editor', {
-    static: true
-  }) editor: QuillEditorComponent | undefined
 
   constructor() {
     toObservable(this.editorField)
@@ -38,25 +46,12 @@ export class SignalFormsComponent implements OnInit {
       })
   }
 
-  ngOnInit() {
-    this.editor!
-      .onContentChanged
-      .pipe(
-        debounceTime(400),
-        distinctUntilChanged()
-      )
-      .subscribe((data: ContentChange) => {
-        // tslint:disable-next-line:no-console
-        console.log('view child + directly subscription', data)
-      })
-  }
 
   setControl() {
     this.form.editor().value.set('SET VALUE')
   }
 
   patchValue() {
-    this.form.editor().value.update((currentValue) => `${currentValue} <span style="background-color: rgb(255, 194, 102); color: rgb(230, 0, 0);">patched!</span>`)
+    this.form.editor().value.update((currentValue) => `${currentValue ?? ''} <span style="background-color: rgb(255, 194, 102); color: rgb(230, 0, 0);">patched!</span>`)
   }
-
 }
